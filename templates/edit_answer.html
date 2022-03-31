@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block page_content %}
+
+    <div>
+        <form method="post">
+            <h1>Edit Answer</h1>
+            {% csrf_token %}
+            {{ form.text }}
+            <span class="checkbox-answer">{{ form.correct }}</span>
+            <button type="submit" class="login-btn">запази</button>
+            <a class="cancel-btn" href="{% url 'my questions' %}">отказ</a>
+        </form>
+    </div>
+
+{% endblock %}

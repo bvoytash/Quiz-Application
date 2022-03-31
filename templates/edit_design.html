@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block page_content %}
+
+    <div>
+        <div class="edit-question">
+            <form method="post" action="{% url 'edit design' design.id %}">
+                <ul>
+                    {% csrf_token %}
+                    {{ form.name }}
+                </ul>
+                <button type="submit" class="login-btn">запази</button>
+                <a class="cancel-btn" href="{% url 'design list' %}">отказ</a>
+            </form>
+        </div>
+    </div>
+{% endblock %}

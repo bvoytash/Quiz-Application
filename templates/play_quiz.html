@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block page_content %}
+    <div>
+        <h1>Quiz questions</h1>
+        <div class="body-quiz">
+            <form method="post" action="{% url 'get result' %}">
+                {% csrf_token %}
+                {% for q in questions %}
+                    <div class="question">{{ q }}</div>
+                    <ul class="answers">
+                        {% for answer in q.get_answer_quiz %}
+                            <li class="li-quiz">
+                                <input type="radio" name="{{ answer.question }}" value="{{ answer.text }}">
+                                {{ answer.text }}
+                            </li>
+                        {% endfor %}
+                    </ul>
+                    <hr class="hr-line">
+                {% endfor %}
+                <button class="login-btn" type="submit">Get result</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}

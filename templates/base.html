@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'second_home.css' %}">
+    <link rel="stylesheet" href="{% static 'home2.css' %}">
+    <link rel="stylesheet" href="{% static 'main.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+<nav class="navbar">
+    {% if request.user.is_authenticated %}
+        <div class="navbar-user">
+            <a class="logo-a" href="{% url 'home' %}">{{ request.user }}</a>
+        </div>
+    {% else %}
+        <div class="navbar-user">
+            <a class="logo-a" href="{% url 'home' %}">Explore Quiz</a>
+        </div>
+    {% endif %}
+    <div class="navbar-links">
+        <ul>
+            {% if request.user.is_authenticated %}
+                <li><a href="{% url 'start quiz' %}" class="nav-button">QUIZ</a></li>
+                <li><a href="{% url 'create question' %}" class="nav-button">ДОБАВИ ВЪПРОС</a></li>
+                <li><a href="{% url 'my questions' %}" class="nav-button">МОИТЕ ВЪПРОСИ</a></li>
+                <li><a href="{% url 'design list' %}" class="nav-button">ДИЗАЙН</a></li>
+                <li><a href="{% url 'cause' %}" class="nav-button">НАШАТА КАУЗА</a></li>
+                <li><a href="{% url 'sign out' %}" class="nav-button">ИЗХОД</a></li>
+            {% else %}
+                <li><a href="{% url 'cause' %}" class="nav-button">НАШАТА КАУЗА</a></li>
+                <li><a href="{% url 'sign in' %}" class="nav-button">ВХОД</a></li>
+                <li><a href="{% url 'sign up' %}" class="nav-button">РЕГИСТРАЦИЯ</a></li>
+            {% endif %}
+        </ul>
+    </div>
+</nav>
+<main>
+    {% block page_content %}
+    {% endblock %}
+</main>
+
+<footer>
+    <div class="footer-div">
+        <span>Намерете ни във </span>
+        <a href="https://www.facebook.com/pages/category/Local---travel-website/Explore-Bulgarian-Beauty-109366823810835/"
+           class="fa fa-facebook base-text"></a>
+        <a href="https://www.instagram.com/explorebulgarianbeauty/?hl=bg" class="fa fa-instagram base-text"></a>
+    </div>
+</footer>
+</body>
+</html>

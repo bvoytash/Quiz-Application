@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block page_content %}
+    <div class="my-questions">
+        {% if object_list %}
+            <h1 class="h1-mq">Моите въпроси</h1>
+        {% else %}
+            <h1 class="h1-mq">Нямате въпроси</h1>
+        {% endif %}
+        {% csrf_token %}
+        {% for question in object_list %}
+            <ul class="my-question-ul">
+                {{ question.text }}
+                <a class="my-question-a login-btn-small" href="{% url 'edit question' question.id %}">промени</a>
+                <a class="my-question-a cancel-btn-small" href="{% url 'delete question' question.id %}">изтрий</a>
+{#                <span>Likes:{{ question.like_set.count }}</span>#}
+                <hr>
+                {% for a in question.get_answer %}
+                    <li class="my-question-li">{{ a.text }}
+                        <a style="color: #1e5830" href="{% url 'edit answer' a.id %}">| промени</a>
+                        {% if a.correct %}
+                            <span>|верен</span>
+                        {% endif %}
+                    </li>
+                {% endfor %}
+            </ul>
+        {% endfor %}
+    </div>
+{% endblock %}

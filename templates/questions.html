@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block page_content %}
+    {% load get_value_dict %}
+    <div>
+        <div class="body-quiz">
+            <form method="post" action="{% url 'quiz' %}">
+                {% csrf_token %}
+                {% for q in questions %}
+                    <div class="question">{{ q }}</div>
+                    <ul class="answers">
+                        {% for answer in q.get_answer_quiz %}
+                            <li class="li-quiz">
+                                <input type="radio" name="{{ answer.question }}" value="{{ answer.text }}">
+                                {{ answer.text }}
+
+                            </li>
+                        {% endfor %}
+                    </ul>
+                    <a type="button" class="base-text" href="{% url 'like question' q.id %}">
+                        <span class="button__text">Likes:</span>
+                        <span class="button__icon">
+                    {% if is_liked|get_value:q.text %}
+                        <ion-icon name="bulb"></ion-icon>
+                    {% else %}
+                        <ion-icon name="bulb-outline"></ion-icon>
+                    {% endif %}
+                            <span>{{ q.like_set.count }}</span>
+                </span>
+                    </a>
+                    <hr class="hr-line">
+                {% endfor %}
+                <div class="end-quiz">
+                    <button class="login-btn" type="submit">Край</button>
+                </div>
+            </form>
+        </div>
+        <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,357 @@
+.login-page {
+    margin-top: 5%;
+    margin-left: 18%;
+    background: #E7EBE0FF;
+    padding: 70px;
+    text-align: center;
+    border-radius: 18px;
+    border: 5px solid green;
+    box-shadow: 10px 10px 15px 15px;
+    color: darkgrey;
+    position: relative;
+    float: left;
+}
+
+.register-page {
+    display: block;
+    margin-top: 5%;
+    margin-left: 18%;
+    background: #E7EBE0FF;
+    padding: 30px;
+    text-align: center;
+    border-radius: 18px;
+    border: 5px solid green;
+    box-shadow: 10px 10px 15px 15px;
+    color: darkgrey;
+    position: relative;
+    width: 20rem;
+}
+
+.register-page label {
+    color: black;
+    font-size: 110%;
+}
+
+.login-btn {
+    display: inline-block;
+    color: white;
+    padding: 8px;
+    width: 8rem;
+    border-radius: 7px;
+    background: mediumseagreen;
+    font-size: 110%;
+    font-family: "Times New Roman";
+    text-align: center;
+    text-decoration: none;
+    font-weight: bolder;
+}
+
+.text-label {
+    font-size: 120%;
+}
+
+.login-img {
+    border-radius: 50%;
+}
+
+.login-page-2 {
+    display: flex;
+    margin-top: 5%;
+    float: right;
+    border-radius: 18px;
+    margin-right: 18%;
+    right: 5px;
+    position: absolute;
+}
+
+.login-right-img {
+    box-shadow: 10px 10px 15px 15px;
+    color: darkgrey;
+    border-radius: 10%;
+}
+
+.login-reg {
+    font-size: 120%;
+    /*margin-top: 15px;*/
+    float: left;
+    color: black;
+}
+
+.body-quiz {
+    padding-bottom: 6rem;
+    /*margin: 1rem;*/
+    display: block;
+    font-size: 130%;
+    background: rgba(231, 235, 224, 0.37);
+    border-radius: 10px;
+    /*width: 96%;*/
+    /*height: 580px; !* Just for the demo          *!*/
+    /*overflow-y: auto; !* Trigger vertical scroll    *!*/
+    /*overflow-x: hidden; !* Hide the horizontal scroll *!*/
+}
+
+.my-questions {
+    /*padding-bottom: 4rem;*/
+    /*display: block;*/
+    font-size: 110%;
+}
+
+.answers {
+    padding: 0.3rem;
+}
+
+.question {
+    margin: 1rem;
+}
+
+input[type=radio] {
+    width: 15px;
+    height: 20px;
+}
+
+.li-quiz {
+    margin-top: 0.5rem;
+    margin-left: 1rem;
+    left: 10px;
+    text-decoration: none;
+    display: block;
+}
+
+.end-quiz {
+    margin-top: 60px;
+}
+
+.hr-line {
+    border: 2px solid green;
+}
+
+.my-question-a {
+    margin-left: 10px;
+}
+
+.my-question-ul {
+    background: #F0F0F0;
+    padding: 1rem;
+    font-size: 120%;
+    /*padding: 1rem;*/
+    list-style-type: none;
+    border-radius: 10px;
+}
+
+.my-question-li {
+    padding-bottom: 10px;
+}
+
+.h1-mq {
+    text-align: center;
+    color: #1e5830;
+    background-color: #F0F0F0;
+    border-radius: 12px;
+    font-family: "Times New Roman";
+}
+
+.edit-question {
+    margin: 5rem;
+    /*float: left;*/
+    background: #E7EBE0FF;
+    padding: 40px;
+    text-align: center;
+    border-radius: 18px;
+    border: 5px solid green;
+    box-shadow: 10px 10px 15px 15px;
+    color: darkgrey;
+    position: absolute;
+}
+
+.cancel-btn {
+    display: inline-block;
+    color: #424038;
+    padding: 8px;
+    width: 8rem;
+    /*border: solid #424038;*/
+    border-radius: 5px;
+    background: #ffde5f;
+    font-size: 110%;
+    font-family: "Times New Roman";
+    text-align: center;
+    text-decoration: none;
+    font-weight: bolder;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+.edit-label {
+    font-size: 130%;
+    color: #1e5830;
+}
+
+.edit-img {
+    box-shadow: 10px 10px 15px 15px;
+    color: darkgrey;
+    border-radius: 10%;
+    float: right;
+    margin-right: 6%;
+    margin-top: 5%;
+}
+
+.checkbox-answer {
+    font-size: 230%;
+}
+
+.send-mail {
+    display: flex;
+    margin-top: 2%;
+    margin-left: 30%;
+    float: left;
+    background: #E7EBE0FF;
+    padding: 40px;
+    text-align: center;
+    border-radius: 18px;
+    border: 5px solid green;
+    box-shadow: 10px 10px 15px 15px;
+    color: darkgrey;
+    position: absolute;
+}
+
+.finish-quiz {
+    display: flex;
+    float: left;
+    background: #E7EBE0FF;
+    padding: 40px;
+    text-align: center;
+    border-radius: 18px;
+    border: 5px solid green;
+    box-shadow: 10px 10px 15px 15px;
+    color: darkgrey;
+    position: absolute;
+    top: 35%;
+    left: 35%;
+}
+
+.send-mail-message {
+    color: #1e5830;
+    font-size: x-large;
+}
+
+.send-mail-img {
+    border-radius: 50%;
+    margin-top: 5%;
+    margin-left: 43%;
+    box-shadow: 3px 3px 3px 3px;
+    color: darkgrey;
+}
+
+.get-code-btn {
+    margin-top: 10px;
+}
+
+.login-btn-small {
+    color: white;
+    padding: 6px;
+    /*border: solid green;*/
+    border-radius: 8px;
+    /*background: mediumseagreen;*/
+    background: rgb(48, 111, 48);
+    font-size: 70%;
+    font-family: "Times New Roman";
+    text-align: center;
+    text-decoration: none;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    /*font-weight: bolder;*/
+}
+
+
+.cancel-btn-small {
+    color: black;
+    padding: 6px;
+    /*border: solid #424038;*/
+    border-radius: 8px;
+    /*background: #ffde5f;*/
+    background: #F1CD28;
+    font-size: 70%;
+    font-family: "Times New Roman";
+    text-align: center;
+    text-decoration: none;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    /*font-weight: bolder;*/
+}
+
+
+.create-page {
+    display: block;
+    margin-top: 5%;
+    margin-left: 10%;
+    background: #E7EBE0FF;
+    padding: 30px;
+    text-align: center;
+    border-radius: 18px;
+    border: 5px solid green;
+    box-shadow: 10px 10px 15px 15px;
+    color: darkgrey;
+    position: relative;
+    width: 30rem;
+}
+
+.create-page label {
+    color: black;
+    font-size: 120%;
+}
+
+.liked-btn {
+    display: inline-block;
+    padding: 8px;
+    width: 8rem;
+    background-color: rgba(30, 144, 255, 0.57);
+    color: white;
+    text-align: center;
+    border-radius: 5px;
+    font-weight: bolder;
+    text-decoration: none;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+.like-btn {
+    display: inline-block;
+    padding: 8px;
+    width: 8rem;
+    background-color: dodgerblue;
+    color: white;
+    text-align: center;
+    border-radius: 5px;
+    font-weight: bolder;
+    text-decoration: none;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+.columns-cause {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.column-cause {
+    padding: 2%;
+    flex: 50%;
+}
+
+.cause {
+    border-radius: 3%;
+    box-shadow: 10px 10px 20px 5px;
+    color: darkgrey;
+    position: relative;
+}
+
+.start-quiz {
+    display: block;
+    text-align: center;
+    background: #E7EBE0FF;
+    padding: 30px;
+    border-radius: 18px;
+    border: 5px solid green;
+    box-shadow: 10px 10px 15px 15px;
+    color: darkgrey;
+    /*position: relative;*/
+    width: 25rem;
+    margin-top: 9%;
+    margin-left: 35%;
+}

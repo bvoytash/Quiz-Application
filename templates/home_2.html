@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block page_content %}
+        {% if request.user.is_authenticated %}
+            <h1 class="message-home">Добави въпрос и заинтригувай останалите!</h1>
+        {% else %}
+            <h1 class="message-home">Спечели своя промо код и вземи 15% отстъпка</h1>
+        {% endif %}
+    <div class="flex-container">
+
+        <div class="flex-item column">
+            <img src="/static/img/one_lev.jpeg" width="420px" height="410px" class="left-image">
+        </div>
+
+        <div class="flex-item column">
+            <img src="/static/img/tree.jpeg" width="420px" height="410px" class="left-image">
+        </div>
+
+        <div class="flex-item column">
+            <img src="/static/img/logo.jpeg" width="420px" height="410px" class="left-image">
+        </div>
+    </div>
+{% endblock %}

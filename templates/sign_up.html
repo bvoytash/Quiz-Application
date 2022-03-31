@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block page_content %}
+    <div class="register-page">
+        <form method="post" action="{% url 'sign up' %}">
+            {% csrf_token %}
+            <label>електронна поща</label>
+            <p>{{ form.email }}</p>
+            <label>парола</label>
+            <p>{{ form.password1 }}</p>
+            <label>повтори парола</label>
+            <p>{{ form.password2 }}</p>
+            <p>
+                <button type="submit" class="login-btn">регистрация</button>
+            </p>
+        </form>
+    </div>
+{% endblock %}

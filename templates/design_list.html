@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load get_value_dict %}
+{% block page_content %}
+    <h1 class="message-home">Избери новото канче!</h1>
+    {% if request.user.is_staff %}
+        <h2 style="margin-left: 2%"><a style="display: inline" class="cancel-btn" href="{% url 'add design' %}">Add Design</a></h2>
+    {% endif %}
+    <div>
+        {% for el in object_list %}
+            <div class="column">
+                <p style="font-size: 20pt">" {{ el.name }} "</p>
+                <img class="left-image" src="media/{{ el.design_image }}" style="height:320px; width:340px">
+
+                <ul style="display: flex; list-style: none; padding: 0;">
+                    <li style="margin: 3px">
+                        {% if is_liked|get_value:el.name %}
+                            <a class="liked-btn" href="{% url 'like design' el.id %}">
+                                Liked
+                            </a>
+                        {% else %}
+                            <a class="like-btn" href="{% url 'like design' el.id %}">
+                                Like
+                            </a>
+                        {% endif %}
+
+                    </li>
+                    {% if request.user.is_staff %}
+                        <li style="margin: 3px">
+                            <a class="login-btn" href="{% url 'edit design' el.id %}">Edit</a>
+                        </li>
+                        <li style="margin: 3px">
+                            <a class="cancel-btn" href="{% url 'delete design' el.id %}">Delete</a>
+                        </li>
+                    {% endif %}
+                </ul>
+                <span style="color: black;">Likes: {{ el.likedesign_set.count }}</span>
+            </div>
+        {% endfor %}
+    </div>
+
+{% endblock %}

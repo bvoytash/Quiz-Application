@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block page_content %}
+    <div>
+        <div class="start-quiz">
+            <img src="/static/img/logo.jpeg" width="100px" height="100px" class="login-img">
+            <h1>QUIZ</h1>
+            <form method="post" action="{% url 'start quiz' %}">
+                {% csrf_token %}
+                <button class="login-btn" type="submit">СТАРТ</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}

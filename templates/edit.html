@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block page_content %}
+
+    <div>
+        <div class="edit-question">
+            <form method="post" action="{% url 'edit question' question.id %}">
+                <label class="edit-label">{{ 'Въпрос:' }}</label>
+                <ul>
+                    {% csrf_token %}
+                    {{ form.text }}
+                </ul>
+                <button type="submit" class="login-btn">запази</button>
+                <a class="cancel-btn" href="{% url 'my questions' %}">отказ</a>
+            </form>
+        </div>
+        {#        <div>#}
+        {#     <img src="/static/img/trees.jpeg" width="490px" height="440px" class="edit-img">#}
+        {#        </div>#}
+    </div>
+{% endblock %}
