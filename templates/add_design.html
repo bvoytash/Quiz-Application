@@ -1,11 +1,15 @@
 {% extends 'base.html' %}
 {% block page_content %}
-
-<h1>Add design</h1>
-<form method="post" enctype="multipart/form-data">
-    {% csrf_token %}
-    {{ form }}
-    <button type="submit">Add</button>
-</form>
+{% load widget_tweaks %}
+    <div class="add-design">
+        <h2 class="add-design-text">Добави дизайн</h2>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <p><label class="add-design-text">Име:  </label>{%render_field form.name style="font-size: medium; border: solid; border-color:green; border-radius: 10px; width 20px; height: 30px" %}</p>
+            <p class="add-design-text">{{ form.design_image }}</p>
+            <button class="login-btn" type="submit">добави</button>
+            <a class="cancel-btn" href="{% url 'design list' %}">отказ</a>
+        </form>
+    </div>
 
 {% endblock %}
