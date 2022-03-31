@@ -156,19 +156,19 @@ class DeleteQuestionView(LoginRequiredMixin, DeleteView):
 #             like.save()
 #         return redirect('quiz')
 
-def like_question(request, pk):
-    question = Question.objects.get(pk=pk)
-    like_object_by_user = question.like_set.filter(user_id=request.user.id).first()
-
-    if like_object_by_user:
-        like_object_by_user.delete()
-    else:
-        like = Like(
-            question=question,
-            user=request.user,
-        )
-        like.save()
-    return redirect('quiz')
+# def like_question(request, pk):
+#     question = Question.objects.get(pk=pk)
+#     like_object_by_user = question.like_set.filter(user_id=request.user.id).first()
+#
+#     if like_object_by_user:
+#         like_object_by_user.delete()
+#     else:
+#         like = Like(
+#             question=question,
+#             user=request.user,
+#         )
+#         like.save()
+#     return redirect('quiz')
 
 
 class EditAnswerView(LoginRequiredMixin, UpdateView):

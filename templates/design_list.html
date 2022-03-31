@@ -8,11 +8,11 @@
     <div>
         {% for el in object_list %}
             <div class="column">
-                <p style="font-size: 20pt">" {{ el.name }} "</p>
+                <p class="design-p">" {{ el.name }} "</p>
                 <img class="left-image" src="media/{{ el.design_image }}" style="height:320px; width:340px">
 
-                <ul style="display: flex; list-style: none; padding: 0;">
-                    <li style="margin: 3px">
+                <ul class="design-ul">
+                    <li class="design-ul-li">
                         {% if is_liked|get_value:el.name %}
                             <a class="liked-btn" href="{% url 'like design' el.id %}">
                                 Liked
@@ -25,15 +25,15 @@
 
                     </li>
                     {% if request.user.is_staff %}
-                        <li style="margin: 3px">
+                        <li class="design-ul-li">
                             <a class="login-btn" href="{% url 'edit design' el.id %}">Edit</a>
                         </li>
-                        <li style="margin: 3px">
+                        <li class="design-ul-li">
                             <a class="cancel-btn" href="{% url 'delete design' el.id %}">Delete</a>
                         </li>
                     {% endif %}
                 </ul>
-                <span style="color: black;">Likes: {{ el.likedesign_set.count }}</span>
+                <span class="design-likes">Likes: {{ el.likedesign_set.count }}</span>
             </div>
         {% endfor %}
     </div>

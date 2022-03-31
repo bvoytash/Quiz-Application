@@ -9,7 +9,15 @@ UserModel = get_user_model()
 class SignUpForm(UserCreationForm):
     class Meta:
         model = UserModel
-        fields = ('email',)
+        fields = ('email', 'password1', 'password2')
+        # widgets = {
+        #     'password1': forms.TextInput(
+        #         attrs={
+        #             'size': '25',
+        #             'style': 'font-size: medium; border: solid; border-color:green; border-radius: 10px; width 25px; height: 36px',
+        #         }
+        #     ),
+        # }
 
 
 class SignInForm(AuthenticationForm):

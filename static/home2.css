@@ -2,7 +2,7 @@
     margin-top: 5%;
     margin-left: 18%;
     background: #E7EBE0FF;
-    padding: 70px;
+    padding: 80px;
     text-align: center;
     border-radius: 18px;
     border: 5px solid green;
@@ -17,19 +17,15 @@
     margin-top: 5%;
     margin-left: 18%;
     background: #E7EBE0FF;
-    padding: 30px;
+    padding: 40px;
     text-align: center;
     border-radius: 18px;
     border: 5px solid green;
     box-shadow: 10px 10px 15px 15px;
     color: darkgrey;
     position: relative;
-    width: 20rem;
-}
-
-.register-page label {
-    color: black;
-    font-size: 110%;
+    width: 25rem;
+    height: 28rem;
 }
 
 .login-btn {
@@ -44,6 +40,7 @@
     text-align: center;
     text-decoration: none;
     font-weight: bolder;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
 
 .text-label {
@@ -354,4 +351,45 @@ input[type=radio] {
     width: 25rem;
     margin-top: 9%;
     margin-left: 35%;
+}
+
+.edit-answer {
+    display: block;
+    text-align: center;
+    background: #E7EBE0FF;
+    border-radius: 18px;
+    border: 5px solid green;
+    box-shadow: 10px 10px 15px 15px;
+    color: darkgrey;
+    padding: 2rem;
+    width: 35rem;
+    margin-top: 9%;
+    margin-left: 30%;
+}
+
+.design-p {
+    font-size: 20pt;
+}
+
+.design-ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+}
+
+.design-ul-li {
+    margin: 3px;
+}
+
+.design-likes {
+    color: black;
+}
+
+.reg-form-field {
+    font-size: medium;
+    border: solid;
+    border-color: green;
+    border-radius: 10px;
+    width: 30px;
+    height: 36px
 }

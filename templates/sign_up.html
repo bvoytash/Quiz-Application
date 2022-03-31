@@ -1,14 +1,14 @@
 {% extends 'base.html' %}
 {% block page_content %}
+    {% load widget_tweaks %}
     <div class="register-page">
+        <img src="/static/img/logo.jpeg" width="100px" height="100px" class="login-img">
         <form method="post" action="{% url 'sign up' %}">
             {% csrf_token %}
-            <label>електронна поща</label>
-            <p>{{ form.email }}</p>
-            <label>парола</label>
-            <p>{{ form.password1 }}</p>
-            <label>повтори парола</label>
-            <p>{{ form.password2 }}</p>
+            <p>{% render_field form.email style="font-size: medium; border: solid; border-color:green; border-radius: 10px; width 30px; height: 36px" placeholder='ел. поща' %}</p>
+            <p>{% render_field form.password1 style="font-size: medium; border: solid; border-color:green; border-radius: 10px; width 30px; height: 36px" placeholder='парола' %}</p>
+            <p>{% render_field form.password2 style="font-size: medium; border: solid; border-color:green; border-radius: 10px; width 30px; height: 36px" placeholder=' повтори парола' %}
+            </p>
             <p>
                 <button type="submit" class="login-btn">регистрация</button>
             </p>
