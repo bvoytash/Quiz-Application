@@ -25,7 +25,15 @@
     color: darkgrey;
     position: relative;
     width: 25rem;
-    height: 28rem;
+    height: 27rem;
+}
+
+.register-right-img {
+    box-shadow: 10px 10px 15px 15px;
+    color: darkgrey;
+    border-radius: 10%;
+    margin-top: 5%;
+    margin-left: 3rem;
 }
 
 .login-btn {
@@ -384,6 +392,7 @@ input[type=radio] {
 .design-likes {
     color: black;
 }
+
 .add-design {
     display: block;
     text-align: center;
@@ -398,7 +407,8 @@ input[type=radio] {
     margin-top: 9%;
     margin-left: 35%;
 }
-.add-design-text{
+
+.add-design-text {
     color: black;
     font-size: 120%;
 }

@@ -6,7 +6,7 @@
         <form method="post" enctype="multipart/form-data">
             {% csrf_token %}
             <p><label class="add-design-text">Име:  </label>{%render_field form.name style="font-size: medium; border: solid; border-color:green; border-radius: 10px; width 20px; height: 30px" %}</p>
-            <p class="add-design-text">{{ form.design_image }}</p>
+            <p class="add-design-text">{%render_field form.design_image style="font-size: medium; width 20px; height: 30px" %}</p>
             <button class="login-btn" type="submit">добави</button>
             <a class="cancel-btn" href="{% url 'design list' %}">отказ</a>
         </form>
