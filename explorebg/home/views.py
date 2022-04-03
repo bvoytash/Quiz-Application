@@ -6,12 +6,12 @@ from django.views.generic import TemplateView
 
 # @method_decorator(cache_page(60 * 10), name='dispatch')
 class HomePageView(TemplateView):
-    template_name = 'home_2.html'
+    template_name = 'home/home_2.html'
 
 
 # @method_decorator(cache_page(60 * 10), name='dispatch')
 class CauseView(TemplateView):
-    template_name = 'cause.html'
+    template_name = 'home/cause.html'
 
 
 def handler404(request, exception):

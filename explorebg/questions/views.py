@@ -20,8 +20,8 @@ def start_quiz(request):
         context = {
             'questions': random_questions
         }
-        return render(request, 'play_quiz.html', context)
-    return render(request, 'start_quiz.html')
+        return render(request, 'quiz/play_quiz.html', context)
+    return render(request, 'quiz/start_quiz.html')
 
 
 @login_required
@@ -36,7 +36,7 @@ def get_result(request):
         context = {
             'correct_answers': correct_answers
         }
-        return render(request, 'finish_quiz.html', context)
+        return render(request, 'quiz/finish_quiz.html', context)
 
 
 # @login_required
@@ -75,7 +75,7 @@ def get_result(request):
 
 class MyQuestions(LoginRequiredMixin, ListView):
     model = Question
-    template_name = 'my_questions.html'
+    template_name = 'questions/my_questions.html'
     ordering = ['text']
 
     def get_queryset(self):
@@ -124,18 +124,18 @@ def create_question(request):
     context = {
         'form': form,
     }
-    return render(request, 'create_question.html', context)
+    return render(request, 'questions/create_question.html', context)
 
 
 class EditQuestionView(LoginRequiredMixin, UpdateView):
     model = Question
-    template_name = 'edit.html'
+    template_name = 'questions/edit.html'
     form_class = EditQuestionForm
     success_url = reverse_lazy('my questions')
 
 
 class DeleteQuestionView(LoginRequiredMixin, DeleteView):
-    template_name = 'delete-question.html'
+    template_name = 'questions/delete-question.html'
     model = Question
     success_url = reverse_lazy('my questions')
 
@@ -173,7 +173,7 @@ class DeleteQuestionView(LoginRequiredMixin, DeleteView):
 
 class EditAnswerView(LoginRequiredMixin, UpdateView):
     model = Answer
-    template_name = 'edit_answer.html'
+    template_name = 'questions/edit_answer.html'
     form_class = EditAnswerForm
     success_url = reverse_lazy('my questions')
 
@@ -203,4 +203,4 @@ def send_email(request):
     context = {
         'code': code,
     }
-    return render(request, 'send_email.html', context)
+    return render(request, 'quiz/send_email.html', context)

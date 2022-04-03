@@ -10,7 +10,7 @@ from explorebg.explore_auth.forms import SignUpForm, SignInForm
 
 class RegisterView(CreateView):
     form_class = SignUpForm
-    template_name = 'sign_up.html'
+    template_name = 'auth/sign_up.html'
     success_url = reverse_lazy('home')
 
     def form_valid(self, form):
@@ -20,7 +20,7 @@ class RegisterView(CreateView):
 
 
 class LoginUserView(LoginView):
-    template_name = 'sign_in.html'
+    template_name = 'auth/sign_in.html'
     authentication_form = SignInForm
     success_url = reverse_lazy('home')
 

@@ -11,7 +11,7 @@ from explorebg.design.models import Design, LikeDesign
 
 
 class AddDesignView(CreateView):
-    template_name = 'add_design.html'
+    template_name = 'design/add_design.html'
     form_class = DesignForm
     success_url = reverse_lazy('design list')
 
@@ -22,7 +22,7 @@ class AddDesignView(CreateView):
 
 class DesignListView(LoginRequiredMixin, ListView):
     model = Design
-    template_name = 'design_list.html'
+    template_name = 'design/design_list.html'
     context_object_name = 'design_photos'
     ordering = ['name']
 
@@ -40,7 +40,7 @@ class DesignListView(LoginRequiredMixin, ListView):
 
 
 class DeleteDesignView(LoginRequiredMixin, DeleteView):
-    template_name = 'delete_design.html'
+    template_name = 'design/delete_design.html'
     model = Design
     success_url = reverse_lazy('design list')
 
@@ -51,7 +51,7 @@ class DeleteDesignView(LoginRequiredMixin, DeleteView):
 
 class EditDesignView(LoginRequiredMixin, UpdateView):
     model = Design
-    template_name = 'edit_design.html'
+    template_name = 'design/edit_design.html'
     form_class = EditDesignForm
     success_url = reverse_lazy('design list')
 

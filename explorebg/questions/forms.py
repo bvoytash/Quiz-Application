@@ -6,21 +6,10 @@ from explorebg.questions.models import Answer, Question
 class CreateQuestionForm(forms.Form):
     question_text = forms.CharField(max_length=200, widget=forms.Textarea(attrs={
         'rows': 4,
-        'size': '30',
-        'style': 'border: solid; border-color:green; border-radius: 10px; font-size: 0.8rem;' 'font: bold;',
     }))
-    first_answer = forms.CharField(max_length=200, widget=forms.TextInput(attrs={
-        'size': '30',
-        'style': 'border: solid;; border-color:green; border-radius: 10px; font-size: 1rem;'
-    }))
-    second_answer = forms.CharField(max_length=200, widget=forms.TextInput(attrs={
-        'size': '30',
-        'style': 'border: solid;; border-color:green; border-radius: 10px; font-size: 1rem;'
-    }))
-    correct_answer = forms.CharField(max_length=200, widget=forms.TextInput(attrs={
-        'size': '30',
-        'style': 'border: solid;; border-color:green; border-radius: 10px; font-size: 1rem;'
-    }))
+    first_answer = forms.CharField(max_length=200)
+    second_answer = forms.CharField(max_length=200)
+    correct_answer = forms.CharField(max_length=200)
 
 
 class EditQuestionForm(forms.ModelForm):
