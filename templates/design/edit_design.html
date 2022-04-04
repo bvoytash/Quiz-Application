@@ -1,12 +1,12 @@
 {% extends 'base.html' %}
 {% block page_content %}
-
+    {% load widget_tweaks %}
     <div>
         <div class="edit-question">
             <form method="post" action="{% url 'edit design' design.id %}">
                 <ul>
                     {% csrf_token %}
-                    {{ form.name }}
+                    {% render_field form.name style="font-size: large; rows: 2; border: solid; border-color: green; border-radius: 10px; width: 20rem; height: 40px" %}
                 </ul>
                 <button type="submit" class="login-btn">запази</button>
                 <a class="cancel-btn" href="{% url 'design list' %}">отказ</a>

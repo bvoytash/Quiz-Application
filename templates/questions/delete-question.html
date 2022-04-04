@@ -1,9 +1,9 @@
 {% extends 'base.html' %}
 {% block page_content %}
-    <div>
+    <div class="delete-question">
         <form method="post" action="{% url 'delete question' question.id %}">
             {% csrf_token %}
-            <p> Сигурни ли сте, че искате да изтриете" {{ object }} " ?</p>
+            <p style="color: black; font-size: x-large"> Сигурни ли сте, че искате да изтриете" {{ object }} " ?</p>
             <button class="login-btn" type="submit">да</button>
             <a class="cancel-btn" href="{% url 'my questions' %}">отказ</a>
         </form>

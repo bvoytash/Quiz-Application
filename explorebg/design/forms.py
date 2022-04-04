@@ -13,11 +13,3 @@ class EditDesignForm(forms.ModelForm):
     class Meta:
         model = Design
         fields = ['name']
-        widgets = {
-            'name': forms.TextInput(
-                attrs={
-                    'size': '30',
-                    'style': 'border: solid; border-color:green; border-radius: 10px; font-size: 100%;' 'font: bold;',
-                }
-            ),
-        }

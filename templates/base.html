@@ -13,10 +13,22 @@
 <body>
 <nav class="navbar">
     {% if request.user.is_authenticated %}
+        <div class="navbar-links">
+            <ul>
+                <li><a href="{% url 'home' %}" class="nav-button">НАЧАЛО</a></li>
+                <li><a href="{% url 'cause' %}" class="nav-button">НАШАТА КАУЗА</a></li>
+            </ul>
+        </div>
         <div class="navbar-user">
-            <a class="logo-a" href="{% url 'home' %}">{{ request.user }}</a>
+            <a class="logo-a">{{ request.user }}</a>
         </div>
     {% else %}
+        <div class="navbar-links">
+            <ul>
+                <li><a href="{% url 'home' %}" class="nav-button">НАЧАЛО</a></li>
+                <li><a href="{% url 'cause' %}" class="nav-button">НАШАТА КАУЗА</a></li>
+            </ul>
+        </div>
         <div class="navbar-user">
             <a class="logo-a" href="{% url 'home' %}">Explore Quiz</a>
         </div>
@@ -24,14 +36,16 @@
     <div class="navbar-links">
         <ul>
             {% if request.user.is_authenticated %}
+                {#                <li><a href="{% url 'home' %}" class="nav-button">НАЧАЛО</a></li>#}
                 <li><a href="{% url 'start quiz' %}" class="nav-button">QUIZ</a></li>
                 <li><a href="{% url 'create question' %}" class="nav-button">ДОБАВИ ВЪПРОС</a></li>
                 <li><a href="{% url 'my questions' %}" class="nav-button">МОИТЕ ВЪПРОСИ</a></li>
                 <li><a href="{% url 'design list' %}" class="nav-button">ДИЗАЙН</a></li>
-                <li><a href="{% url 'cause' %}" class="nav-button">НАШАТА КАУЗА</a></li>
+                {#                <li><a href="{% url 'cause' %}" class="nav-button">НАШАТА КАУЗА</a></li>#}
                 <li><a href="{% url 'sign out' %}" class="nav-button">ИЗХОД</a></li>
             {% else %}
-                <li><a href="{% url 'cause' %}" class="nav-button">НАШАТА КАУЗА</a></li>
+                {#                <li><a href="{% url 'home' %}" class="nav-button">НАЧАЛО</a></li>#}
+                {#                <li><a href="{% url 'cause' %}" class="nav-button">НАШАТА КАУЗА</a></li>#}
                 <li><a href="{% url 'sign in' %}" class="nav-button">ВХОД</a></li>
                 <li><a href="{% url 'sign up' %}" class="nav-button">РЕГИСТРАЦИЯ</a></li>
             {% endif %}

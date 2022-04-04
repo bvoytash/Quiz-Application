@@ -156,16 +156,17 @@ input[type=radio] {
 }
 
 .edit-question {
-    margin: 5rem;
-    /*float: left;*/
-    background: #E7EBE0FF;
-    padding: 40px;
+    display: block;
     text-align: center;
+    background: #E7EBE0FF;
     border-radius: 18px;
     border: 5px solid green;
     box-shadow: 10px 10px 15px 15px;
     color: darkgrey;
-    position: absolute;
+    padding: 1rem;
+    width: 40rem;
+    margin-top: 10%;
+    margin-left: 30%;
 }
 
 .cancel-btn {
@@ -421,4 +422,18 @@ input[type=radio] {
     border-radius: 10px;
     width: 30px;
     height: 36px
+}
+
+.delete-question {
+    display: block;
+    text-align: center;
+    background: #E7EBE0FF;
+    border-radius: 18px;
+    border: 5px solid green;
+    box-shadow: 10px 10px 15px 15px;
+    color: darkgrey;
+    padding: 2rem;
+    width: 35rem;
+    margin-top: 9%;
+    margin-left: 30%;
 }

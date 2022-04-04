@@ -17,14 +17,7 @@ class EditQuestionForm(forms.ModelForm):
         model = Question
         fields = ['text']
         widgets = {
-            'text': forms.Textarea(
-                attrs={
-                    'rows': 4,
-                    'class': 'asd',
-                    'size': '35',
-                    'style': 'border: solid; border-color:green; border-radius: 10px; font-size: 120%;' 'font: bold;',
-                }
-            )
+            'text': forms.Textarea(attrs={'rows': 4}),
         }
 
 
@@ -33,12 +26,5 @@ class EditAnswerForm(forms.ModelForm):
         model = Answer
         fields = ['text', 'correct']
         widgets = {
-            'text': forms.Textarea(
-                attrs={
-                    'rows': 2,
-                    'class': 'asd',
-                    'size': '35',
-                    'style': 'border: solid; border-color:green; border-radius: 10px; font-size: 120%;' 'font: bold;',
-                }
-            ),
+            'text': forms.Textarea(attrs={'rows': 2}),
         }

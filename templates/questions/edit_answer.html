@@ -1,13 +1,13 @@
 {% extends 'base.html' %}
 {% block page_content %}
-
+ {% load widget_tweaks %}
     <div class="edit-answer">
         <form method="post">
-            <h1>Edit Answer</h1>
+            <h2>Отговор:</h2>
             {% csrf_token %}
-            {{ form.text }}
+            {% render_field form.text style="font-size: large; rows: 2; border: solid; border-color: green; border-radius: 10px; width: 20rem; height: 60px" %}
             <div class="checkbox-answer">
-                <span>верен {{ form.correct }}</span>
+                <span>верен - {% render_field form.correct style="font-size: xx-large;"%}</span>
             </div>
             <button type="submit" class="login-btn">запази</button>
             <a class="cancel-btn" href="{% url 'my questions' %}">отказ</a>
