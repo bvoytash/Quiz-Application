@@ -285,6 +285,7 @@ input[type=radio] {
     display: block;
     margin-top: 5%;
     margin-left: 10%;
+    margin-bottom: 2%;
     background: #E7EBE0FF;
     padding: 40px;
     text-align: center;
@@ -293,7 +294,7 @@ input[type=radio] {
     box-shadow: 10px 10px 15px 15px;
     color: darkgrey;
     position: relative;
-    /*width: 30rem;*/
+    /*!*width: 30rem;*!*/
 }
 
 .create-page label {

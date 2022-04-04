@@ -27,11 +27,13 @@ def start_quiz(request):
 @login_required
 def get_result(request):
     if request.method == "POST":
-        answers = [a.text for a in Answer.objects.all() if a.correct]
+        dict_qa = {}
+        for a in Answer.objects.all():
+            if a.correct:
+                dict_qa[a.question.text] = a.text
         correct_answers = 0
         for k, v in request.POST.items():
-            print(v)
-            if v in answers:
+            if dict_qa.get(k) == v:
                 correct_answers += 1
         context = {
             'correct_answers': correct_answers
