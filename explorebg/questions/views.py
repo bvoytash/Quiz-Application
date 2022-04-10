@@ -9,7 +9,7 @@ from django.urls import reverse_lazy
 from django.views.generic import ListView, UpdateView, DeleteView
 
 from explorebg.questions.forms import CreateQuestionForm, EditQuestionForm, EditAnswerForm
-from explorebg.questions.models import Question, Answer, Like, PromoCode
+from explorebg.questions.models import Question, Answer, Like, Code
 
 
 @login_required
@@ -182,7 +182,7 @@ class EditAnswerView(LoginRequiredMixin, UpdateView):
 
 def get_promo_code():
     symbols = string.ascii_lowercase + string.ascii_uppercase + string.digits
-    length = 4
+    length = 5
     code = "".join(random.sample(symbols, length))
     return code
 
@@ -191,7 +191,7 @@ def get_promo_code():
 def send_email(request):
     code = get_promo_code()
     user = request.user
-    new_code = PromoCode(
+    new_code = Code(
         text=code,
         user=user,
     )

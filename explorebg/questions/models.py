@@ -43,8 +43,8 @@ class Like(models.Model):
     )
 
 
-class PromoCode(models.Model):
-    text = models.CharField(max_length=4)
+class Code(models.Model):
+    text = models.CharField(max_length=10)
     user = models.ForeignKey(
         UserModel,
         on_delete=models.CASCADE,

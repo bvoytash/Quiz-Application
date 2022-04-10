@@ -1,23 +1,19 @@
-from django.contrib.auth.decorators import login_required, permission_required
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.shortcuts import redirect
 from django.urls import reverse_lazy
-from django.utils.decorators import method_decorator
-from django.views import generic as views
 from django.views.generic import CreateView, DeleteView, UpdateView, ListView
 
 from explorebg.design.forms import DesignForm, EditDesignForm
 from explorebg.design.models import Design, LikeDesign
 
 
-class AddDesignView(CreateView):
+class AddDesignView(PermissionRequiredMixin, CreateView):
+    permission_required = 'design.add_design'
     template_name = 'design/add_design.html'
     form_class = DesignForm
     success_url = reverse_lazy('design list')
-
-    @method_decorator(permission_required('explorebg.add_design', raise_exception=True))
-    def dispatch(self, *args, **kwargs):
-        return super(AddDesignView, self).dispatch(*args, **kwargs)
 
 
 class DesignListView(LoginRequiredMixin, ListView):
@@ -39,25 +35,19 @@ class DesignListView(LoginRequiredMixin, ListView):
         return context
 
 
-class DeleteDesignView(LoginRequiredMixin, DeleteView):
+class DeleteDesignView(PermissionRequiredMixin, DeleteView):
+    permission_required = 'design.delete_design'
     template_name = 'design/delete_design.html'
     model = Design
     success_url = reverse_lazy('design list')
 
-    @method_decorator(permission_required('explorebg.delete_design', raise_exception=True))
-    def dispatch(self, *args, **kwargs):
-        return super(DeleteDesignView, self).dispatch(*args, **kwargs)
 
-
-class EditDesignView(LoginRequiredMixin, UpdateView):
+class EditDesignView(PermissionRequiredMixin, UpdateView):
+    permission_required = 'design.change_design'
     model = Design
     template_name = 'design/edit_design.html'
     form_class = EditDesignForm
     success_url = reverse_lazy('design list')
-
-    @method_decorator(permission_required('explorebg.change_design', raise_exception=True))
-    def dispatch(self, *args, **kwargs):
-        return super(EditDesignView, self).dispatch(*args, **kwargs)
 
 
 @login_required

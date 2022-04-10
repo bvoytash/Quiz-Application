@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from explorebg.questions.models import Question, Answer, PromoCode
+from explorebg.questions.models import Question, Answer, Code
 
 
 class AnswerInline(admin.TabularInline):
@@ -13,11 +13,11 @@ class QuestionAdmin(admin.ModelAdmin):
     ]
 
 
-class PromoCodeAdmin(admin.ModelAdmin):
+class CodeAdmin(admin.ModelAdmin):
     list_display = ('text', 'user')
 
 
 admin.site.register(Question, QuestionAdmin)
 admin.site.register(Answer)
 # admin.site.register(Like)
-admin.site.register(PromoCode, PromoCodeAdmin)
+admin.site.register(Code, CodeAdmin)
