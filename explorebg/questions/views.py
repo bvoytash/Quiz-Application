@@ -9,7 +9,7 @@ from django.urls import reverse_lazy
 from django.views.generic import ListView, UpdateView, DeleteView
 
 from explorebg.questions.forms import CreateQuestionForm, EditQuestionForm, EditAnswerForm
-from explorebg.questions.models import Question, Answer, Like, Code
+from explorebg.questions.models import Question, Answer, Code
 
 
 @login_required
@@ -39,40 +39,6 @@ def get_result(request):
             'correct_answers': correct_answers
         }
         return render(request, 'quiz/finish_quiz.html', context)
-
-
-# @login_required
-# def get_quiz(request):
-#     questions = Question.objects.all()
-#     user = request.user
-#     # r_questions = random.sample(list(questions), 2)
-#     is_liked = {}
-#     for q in questions:
-#         if q.like_set.filter(user_id=request.user.id).first():
-#             is_liked[q.text] = True
-#         else:
-#             is_liked[q.text] = False
-#
-#     if request.method == 'POST':
-#         correct_answers = 0
-#         for question in questions:
-#             answer = [answer.text for answer in question.get_answer() if answer.correct][0]
-#             if request.POST.get(question.text) == answer:
-#                 correct_answers += 1
-#         print(correct_answers)
-#         context = {
-#             'correct_answers': correct_answers,
-#             'user': user,
-#         }
-#
-#         return render(request, 'finish_quiz.html', context)
-#
-#     context = {
-#         'questions': questions,
-#         'user': user,
-#         'is_liked': is_liked,
-#     }
-#     return render(request, 'questions.html', context)
 
 
 class MyQuestions(LoginRequiredMixin, ListView):
@@ -141,22 +107,6 @@ class DeleteQuestionView(LoginRequiredMixin, DeleteView):
     model = Question
     success_url = reverse_lazy('my questions')
 
-
-#
-# class LikeQuestionView(LoginRequiredMixin, View):
-#     def post(self, request, *args, **kwargs):
-#         question = Question.objects.get(pk=self.kwargs['pk'])
-#         like_object_by_user = question.like_set.filter(user_id=self.request.user.id) \
-#             .first()
-#         if like_object_by_user:
-#             like_object_by_user.delete()
-#         else:
-#             like = Like(
-#                 question=question,
-#                 user=self.request.user,
-#             )
-#             like.save()
-#         return redirect('quiz')
 
 # def like_question(request, pk):
 #     question = Question.objects.get(pk=pk)
