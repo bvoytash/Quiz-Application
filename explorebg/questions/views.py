@@ -146,6 +146,7 @@ def send_email(request):
         user=user,
     )
     new_code.save()
+                                            # TODO if error: code = get new code
     send_mail('Hello from Explore Quiz',
               f"Your code is {code}",
               'explore-quiz@abv.bg',

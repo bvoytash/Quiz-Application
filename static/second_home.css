@@ -187,3 +187,11 @@ span {
     text-align: center;
     font-family: monospace, "Courier New";
 }
+
+.password{
+    font-size: large;
+    display: block;
+    color: black;
+    margin-top: 1rem;
+    /*font-weight: bold;*/
+}

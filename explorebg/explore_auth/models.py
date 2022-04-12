@@ -14,6 +14,11 @@ class ExploreUser(AbstractBaseUser, PermissionsMixin):
         default=False,
     )
 
+    '''  
+    solution for reset password error "is.active cant resolved"
+    is_active = models.BooleanField(default=True)
+    '''
+
     USERNAME_FIELD = 'email'
 
     objects = ExploreUserManager()

@@ -11,7 +11,11 @@
                 <p style="color: black; text-decoration: underline">Навалиден имейл или парола</p>
             {% endif %}
             <button type="submit" class="login-btn">вход</button>
+             <a class="password" href="{% url 'reset_password' %}">Забравена парола</a>
         </form>
+{#    <div>#}
+{#        <a class="password">zabrawena parola</a>#}
+{#    </div>#}
     </div>
     <div class="login-page-2">
         <img src="/static/img/pic4.jpeg" width="440px" height="440px" class="login-right-img">
