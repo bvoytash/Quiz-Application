@@ -25,7 +25,7 @@ class MyQuestionsListViewTest(TestCase):
 
         self.assertEqual(str(response.context['user']), 'test@mail.bg')
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'my_questions.html')
+        self.assertTemplateUsed(response, 'questions/my_questions.html')
 
     def test_logged_user_count_of_questions(self):
         test_user2 = ExploreUser.objects.create_user(email='test2@mail.bg', password='123')

@@ -31,7 +31,7 @@ class StartQuizTest(TestCase):
 
         self.assertEqual(str(response.context['user']), 'test@mail.bg')
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'start_quiz.html')
+        self.assertTemplateUsed(response, 'quiz/start_quiz.html')
 
     def test_count_of_questions_while_start_quiz(self):
         test_user2 = ExploreUser.objects.create_user(email='test2@mail.bg', password='123')
@@ -39,5 +39,5 @@ class StartQuizTest(TestCase):
 
         login = self.client.login(email='test2@mail.bg', password='123')
         response = self.client.post(reverse('start quiz'))
-        self.assertTemplateUsed(response, 'play_quiz.html')
+        self.assertTemplateUsed(response, 'quiz/play_quiz.html')
         self.assertEqual(len(response.context['questions']), 2)

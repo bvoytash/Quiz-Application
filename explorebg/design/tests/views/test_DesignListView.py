@@ -23,7 +23,7 @@ class DesignListViewTest(TestCase):
 
         self.assertEqual(str(response.context['user']), 'test@mail.bg')
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'design_list.html')
+        self.assertTemplateUsed(response, 'design/design_list.html')
 
     def test_logged_user_count_of_designs(self):
         login = self.client.login(email='test@mail.bg', password='123')

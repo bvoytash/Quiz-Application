@@ -31,5 +31,5 @@ class GetResultTest(TestCase):
 
         self.assertEqual(str(response.context['user']), 'test@mail.bg')
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'finish_quiz.html')
+        self.assertTemplateUsed(response, 'quiz/finish_quiz.html')
         self.assertEqual(response.context['correct_answers'], 0)

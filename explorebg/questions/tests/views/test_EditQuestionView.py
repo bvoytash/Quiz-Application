@@ -34,7 +34,7 @@ class EditQuestionViewTest(TestCase):
 
         self.assertEqual(str(response.context['user']), 'test2@mail.bg')
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'edit.html')
+        self.assertTemplateUsed(response, 'questions/edit.html')
 
     def test_edit_successful_question_and_redirect_to_my_questions(self):
         test_user2 = ExploreUser.objects.create_user(email='test2@mail.bg', password='123')

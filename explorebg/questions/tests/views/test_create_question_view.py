@@ -19,7 +19,7 @@ class CreateQuestionTest(TestCase):
         response = self.client.get(reverse('create question'))
         self.assertEqual(str(response.context['user']), 'test@mail.bg')
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'create_question.html')
+        self.assertTemplateUsed(response, 'questions/create_question.html')
 
     def test_try_to_create_question_with_some_blank_fields_form(self):
         login = self.client.login(email='test@mail.bg', password='123')
