@@ -7,6 +7,7 @@ from django.core.mail import send_mail
 from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.views.generic import ListView, UpdateView, DeleteView
+from django.contrib import messages
 
 from explorebg.questions.forms import CreateQuestionForm, EditQuestionForm, EditAnswerForm
 from explorebg.questions.models import Question, Answer, Code
@@ -15,12 +16,19 @@ from explorebg.questions.models import Question, Answer, Code
 @login_required
 def start_quiz(request):
     if request.method == "POST":
-        questions = [el for el in Question.objects.all()]
-        random_questions = random.sample(questions, 2)
+        questions = list(Question.objects.all())
+        num_questions = min(len(questions), 5)  # Get up to 5 questions, or fewer if not enough
+
+        if num_questions == 0:
+            messages.error(request, "No questions available for the quiz.")
+            return render(request, 'quiz/start_quiz.html')
+
+        random_questions = random.sample(questions, num_questions)
         context = {
             'questions': random_questions
         }
         return render(request, 'quiz/play_quiz.html', context)
+
     return render(request, 'quiz/start_quiz.html')
 
 
@@ -31,12 +39,19 @@ def get_result(request):
         for a in Answer.objects.all():
             if a.correct:
                 dict_qa[a.question.text] = a.text
+
         correct_answers = 0
         for k, v in request.POST.items():
             if dict_qa.get(k) == v:
                 correct_answers += 1
+
+        total_questions = len(dict_qa)  # Total questions are the keys in the dictionary
+        passed = correct_answers > total_questions / 2  # Compute if more than 50%
+
         context = {
-            'correct_answers': correct_answers
+            'correct_answers': correct_answers,
+            'total_questions': total_questions,
+            'passed': passed  # Add the computed result here
         }
         return render(request, 'quiz/finish_quiz.html', context)
 
