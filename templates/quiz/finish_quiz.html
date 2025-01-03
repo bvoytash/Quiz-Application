@@ -2,10 +2,10 @@
 {% block page_content %}
 <div>
     <div class="finish-quiz">
-    <span>Верни отговори: {{ correct_answers }}/10
-        {% if correct_answers > 0 %}
+    <span>Верни отговори: {{ correct_answers }}/{{ total_questions }}
+        {% if passed %}
             <p><a style="display: inline" class="login-btn" href="{% url 'send email' %}">Вземи своя промо код!</a>
-    {% else %}
+        {% else %}
             <p><a style="display: inline" class="cancel-btn" href="{% url 'start quiz' %}">Опитай пак!</a>
         {% endif %}
     </span>
