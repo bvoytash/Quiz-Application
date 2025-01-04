@@ -1,11 +1,13 @@
 {% extends 'base.html' %}
 {% block page_content %}
-    <div class="columns-cause">
-        <div class="column-cause">
-            <img class="cause" src="/static/img/cause.jpeg" width="600px" height="560px">
-        </div>
-        <div class="column-cause">
-            <img class="cause" src="/static/img/tree.jpeg" width="520px" height="560px">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6 text-center mb-4">
+                <img src="/static/img/cause.jpeg" class="img-fluid rounded" width="600" height="560" alt="Cause Image">
+            </div>
+            <div class="col-md-6 text-center mb-4">
+                <img src="/static/img/tree.jpeg" class="img-fluid rounded" width="600" height="560" alt="Tree Image">
+            </div>
         </div>
     </div>
 {% endblock %}

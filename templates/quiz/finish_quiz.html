@@ -1,14 +1,42 @@
 {% extends 'base.html' %}
 {% block page_content %}
-<div>
-    <div class="finish-quiz">
-    <span>Верни отговори: {{ correct_answers }}/{{ total_questions }}
-        {% if passed %}
-            <p><a style="display: inline" class="login-btn" href="{% url 'send email' %}">Вземи своя промо код!</a>
-        {% else %}
-            <p><a style="display: inline" class="cancel-btn" href="{% url 'start quiz' %}">Опитай пак!</a>
-        {% endif %}
-    </span>
+    <style>
+        .results-container {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 20px;
+        }
+        .result-message {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .promo-link, .retry-link {
+            display: inline-block;
+            margin-top: 10px;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            color: #fff;
+        }
+        .promo-link {
+            background-color: #28a745;
+        }
+        .retry-link {
+            background-color: #dc3545;
+        }
+    </style>
+    <div class="container results-container">
+        <div>
+            <div class="result-message">
+                Верни отговори: {{ correct_answers }}/{{ total_questions }}
+            </div>
+            {% if passed %}
+                <a class="promo-link" href="{% url 'send email' %}">Вземи своя промо код!</a>
+            {% else %}
+                <a class="retry-link" href="{% url 'start quiz' %}">Опитай пак!</a>
+            {% endif %}
+        </div>
     </div>
-</div>
 {% endblock %}

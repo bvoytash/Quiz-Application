@@ -1,24 +1,48 @@
 {% extends 'base.html' %}
 {% block page_content %}
-    <div>
-        <h1>Quiz questions</h1>
-        <div class="body-quiz">
-            <form method="post" action="{% url 'get result' %}">
-                {% csrf_token %}
-                {% for q in questions %}
-                    <div class="question">{{ q }}</div>
-                    <ul class="answers">
-                        {% for answer in q.get_answer_quiz %}
-                            <li class="li-quiz">
-                                <input type="radio" name="{{ answer.question }}" value="{{ answer.text }}">
-                                {{ answer.text }}
-                            </li>
-                        {% endfor %}
-                    </ul>
-                    <hr class="hr-line">
-                {% endfor %}
-                <button class="login-btn" type="submit">край</button>
-            </form>
+    <style>
+        .quiz-container {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .question {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .answer-list {
+            list-style-type: none;
+            padding: 0;
+            margin-bottom: 15px;
+        }
+        .answer-item {
+            margin-bottom: 5px;
+        }
+        .submit-button {
+            display: block;
+            margin: 20px auto;
+        }
+    </style>
+    <div class="container quiz-container">
+        <h1 class="text-center mb-4">Quiz questions</h1>
+        <div class="row justify-content-center">
+            <div class="col-md-12">
+                <form method="post" action="{% url 'get result' %}">
+                    {% csrf_token %}
+                    {% for q in questions %}
+                        <div class="question">{{ q }}</div>
+                        <ul class="answer-list">
+                            {% for answer in q.get_answer_quiz %}
+                                <li class="answer-item">
+                                    <input type="radio" name="{{ answer.question }}" value="{{ answer.text }}" class="form-check-input">
+                                    <label class="form-check-label">{{ answer.text }}</label>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                        <hr>
+                    {% endfor %}
+                    <button class="btn btn-primary submit-button" type="submit">край</button>
+                </form>
+            </div>
         </div>
     </div>
 {% endblock %}

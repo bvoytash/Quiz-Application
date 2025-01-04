@@ -1,12 +1,24 @@
 {% extends 'base.html' %}
 {% block page_content %}
-    <div>
+    <style>
+        .confirmation-container {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 20px;
+        }
+        .confirmation-message {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+    </style>
+    <div class="container confirmation-container">
         <div>
-            <img src="/static/img/logo.jpeg" width="160px" height="160px" class="send-mail-img">
+            <img src="/static/img/logo.jpeg" width="160px" height="160px" class="rounded-circle">
         </div>
-        <div class="send-mail">
-            <p class="send-mail-message">Ще получите код на електронната Ви поща!
-            </p>
+        <div class="confirmation-message">
+            Ще получите код на електронната Ви поща!
         </div>
     </div>
 {% endblock %}

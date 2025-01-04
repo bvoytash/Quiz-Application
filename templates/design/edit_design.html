@@ -1,15 +1,47 @@
 {% extends 'base.html' %}
 {% block page_content %}
     {% load widget_tweaks %}
-    <div>
-        <div class="edit-question">
-            <form method="post" action="{% url 'edit design' design.id %}">
+    <style>
+        .edit-design-container {
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 20px;
+        }
+        .edit-design-form {
+            margin-bottom: 20px;
+        }
+        .edit-design-field {
+            font-size: large;
+            border: solid;
+            border-color: green;
+            border-radius: 10px;
+            width: 100%;
+            height: 40px;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+        .action-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+        .action-buttons .btn {
+            width: auto;
+            padding: 10px 20px;
+        }
+    </style>
+    <div class="container edit-design-container">
+        <div>
+            <form method="post" action="{% url 'edit design' design.id %}" class="edit-design-form">
                 <ul>
                     {% csrf_token %}
-                    {% render_field form.name style="font-size: large; rows: 2; border: solid; border-color: green; border-radius: 10px; width: 20rem; height: 40px" %}
+                    {% render_field form.name class="edit-design-field" %}
                 </ul>
-                <button type="submit" class="login-btn">запази</button>
-                <a class="cancel-btn" href="{% url 'design list' %}">отказ</a>
+                <div class="action-buttons">
+                    <button type="submit" class="btn btn-primary">запази</button>
+                    <a class="btn btn-secondary" href="{% url 'design list' %}">отказ</a>
+                </div>
             </form>
         </div>
     </div>
