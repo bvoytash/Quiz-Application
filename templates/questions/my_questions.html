@@ -1,24 +1,60 @@
 {% extends 'base.html' %}
 {% block page_content %}
-    <div class="my-questions">
+    <style>
+        .questions-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .questions-title {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .question-item {
+            margin-bottom: 30px; /* Increased margin-bottom for more space */
+        }
+        .answer-item {
+            list-style-type: none;
+            margin-bottom: 10px;
+        }
+        .question-actions {
+            display: inline-flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        .answer-actions {
+            margin-left: 10px;
+            color: #007bff;
+            text-decoration: none;
+        }
+        .answer-actions:hover {
+            text-decoration: underline;
+        }
+        .correct-answer {
+            color: #28a745;
+            font-weight: bold;
+        }
+    </style>
+    <div class="container questions-container">
         {% if object_list %}
-            <h1 class="h1-mq">Моите въпроси</h1>
+            <h1 class="questions-title">Моите въпроси</h1>
         {% else %}
-            <h1 class="h1-mq">Нямате въпроси</h1>
+            <h1 class="questions-title">Нямате въпроси</h1>
         {% endif %}
         {% csrf_token %}
         {% for question in object_list %}
-            <ul class="my-question-ul">
-                {{ question.text }}
-                <a class="my-question-a login-btn-small" href="{% url 'edit question' question.id %}">промени</a>
-                <a class="my-question-a cancel-btn-small" href="{% url 'delete question' question.id %}">изтрий</a>
-{#                <span>Likes:{{ question.like_set.count }}</span>#}
+            <ul class="question-item">
+                <li>{{ question.text }}</li>
+                <div class="question-actions">
+                    <a class="btn btn-outline-primary btn-sm" href="{% url 'edit question' question.id %}">промени</a>
+                    <a class="btn btn-outline-danger btn-sm" href="{% url 'delete question' question.id %}">изтрий</a>
+                </div>
                 <hr>
                 {% for a in question.get_answer %}
-                    <li class="my-question-li">{{ a.text }}
-                        <a style="color: #1e5830" href="{% url 'edit answer' a.id %}">| промени</a>
+                    <li class="answer-item">{{ a.text }}
+                        <a class="answer-actions" href="{% url 'edit answer' a.id %}">| промени</a>
                         {% if a.correct %}
-                            <span>|верен</span>
+                            <span class="correct-answer">| верен</span>
                         {% endif %}
                     </li>
                 {% endfor %}

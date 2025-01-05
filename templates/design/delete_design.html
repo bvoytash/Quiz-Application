@@ -1,11 +1,37 @@
 {% extends 'base.html' %}
 {% block page_content %}
-    <div class="delete-question">
-        <form method="post" action="{% url 'delete design' design.id %}">
-            {% csrf_token %}
-            <p style="color: black; font-size: x-large"> Сигурни ли сте, че искате да изтриете" {{ object.name }} " ?</p>
-            <button class="login-btn" type="submit">да</button>
-            <a class="cancel-btn" href="{% url 'design list' %}">отказ</a>
-        </form>
+    <style>
+        .delete-confirmation-container {
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 20px;
+        }
+        .confirmation-message {
+            color: black;
+            font-size: x-large;
+            margin-bottom: 20px;
+        }
+        .action-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+        .action-buttons .btn {
+            width: auto;
+            padding: 10px 20px;
+        }
+    </style>
+    <div class="container delete-confirmation-container">
+        <div>
+            <form method="post" action="{% url 'delete design' design.id %}">
+                {% csrf_token %}
+                <p class="confirmation-message">Сигурни ли сте, че искате да изтриете "{{ object.name }}"?</p>
+                <div class="action-buttons">
+                    <button class="btn btn-danger" type="submit">да</button>
+                    <a class="btn btn-secondary" href="{% url 'design list' %}">отказ</a>
+                </div>
+            </form>
+        </div>
     </div>
 {% endblock %}

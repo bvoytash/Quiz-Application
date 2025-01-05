@@ -1,22 +1,19 @@
 {% extends 'base.html' %}
 {% block page_content %}
-        {% if request.user.is_authenticated %}
-            <h1 class="message-home">Добави въпрос и заинтригувай останалите!</h1>
-        {% else %}
-            <h1 class="message-home">Спечели своя промо код и вземи 15% отстъпка от нашия магазин!</h1>
-        {% endif %}
-    <div class="columns-cause">
-
-        <div class="flex-item column">
-            <img src="/static/img/one_lev.jpeg" width="410px" height="410px" class="left-image">
+    {% if request.user.is_authenticated %}
+        <h1 class="text-center mb-4">Добави въпрос и заинтригувай останалите!</h1>
+    {% else %}
+        <h1 class="text-center mb-4">Спечели своя промо код и вземи 15% отстъпка от нашия магазин!</h1>
+    {% endif %}
+    <div class="row text-center">
+        <div class="col-md-4 mb-3">
+            <img src="/static/img/one_lev.jpeg" class="img-fluid rounded" alt="Image 1">
         </div>
-
-        <div class="flex-item column">
-            <img src="/static/img/new_logo.png" width="410px" height="410px" class="left-image">
+        <div class="col-md-4 mb-3">
+            <img src="/static/img/new_logo.png" class="img-fluid rounded" alt="Image 2">
         </div>
-
-        <div class="flex-item column">
-            <img src="/static/img/logo.jpeg" width="410px" height="410px" class="left-image">
+        <div class="col-md-4 mb-3">
+            <img src="/static/img/logo.jpeg" class="img-fluid rounded" alt="Image 3">
         </div>
     </div>
 {% endblock %}

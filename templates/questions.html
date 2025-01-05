@@ -1,41 +1,70 @@
 {% extends 'base.html' %}
 {% block page_content %}
     {% load get_value_dict %}
-    <div>
-        <div class="body-quiz">
-            <form method="post" action="{% url 'quiz' %}">
-                {% csrf_token %}
-                {% for q in questions %}
-                    <div class="question">{{ q }}</div>
-                    <ul class="answers">
-                        {% for answer in q.get_answer_quiz %}
-                            <li class="li-quiz">
-                                <input type="radio" name="{{ answer.question }}" value="{{ answer.text }}">
-                                {{ answer.text }}
-
-                            </li>
-                        {% endfor %}
-                    </ul>
-                    <a type="button" class="base-text" href="{% url 'like question' q.id %}">
-                        <span class="button__text">Likes:</span>
-                        <span class="button__icon">
-                    {% if is_liked|get_value:q.text %}
-                        <ion-icon name="bulb"></ion-icon>
-                    {% else %}
-                        <ion-icon name="bulb-outline"></ion-icon>
-                    {% endif %}
+    <style>
+        .quiz-container {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .question {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .answer-list {
+            list-style-type: none;
+            padding: 0;
+            margin-bottom: 15px;
+        }
+        .answer-item {
+            margin-bottom: 5px;
+        }
+        .likes-button {
+            display: inline-flex;
+            align-items: center;
+            text-decoration: none;
+            margin-bottom: 10px;
+            color: #007bff;
+        }
+        .likes-button ion-icon {
+            margin-right: 5px;
+        }
+        .likes-button span {
+            margin-right: 10px;
+        }
+    </style>
+    <div class="container quiz-container">
+        <div class="row justify-content-center text-center">
+            <div class="col-md-12">
+                <form method="post" action="{% url 'quiz' %}">
+                    {% csrf_token %}
+                    {% for q in questions %}
+                        <div class="question mb-2">{{ q }}</div>
+                        <ul class="answer-list">
+                            {% for answer in q.get_answer_quiz %}
+                                <li class="answer-item mb-1">
+                                    <input type="radio" name="{{ answer.question }}" value="{{ answer.text }}" class="form-check-input">
+                                    <label class="form-check-label">{{ answer.text }}</label>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                        <a type="button" class="btn btn-outline-primary mb-3 likes-button" href="{% url 'like question' q.id %}">
+                            <span>Likes:</span>
+                            {% if is_liked|get_value:q.text %}
+                                <ion-icon name="bulb"></ion-icon>
+                            {% else %}
+                                <ion-icon name="bulb-outline"></ion-icon>
+                            {% endif %}
                             <span>{{ q.like_set.count }}</span>
-                </span>
-                    </a>
-                    <hr class="hr-line">
-                {% endfor %}
-                <div class="end-quiz">
-                    <button class="login-btn" type="submit">Край</button>
-                </div>
-            </form>
+                        </a>
+                        <hr class="my-4">
+                    {% endfor %}
+                    <div class="text-center">
+                        <button class="btn btn-primary" type="submit" style="width: auto;">Край</button>
+                    </div>
+                </form>
+            </div>
         </div>
         <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
         <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     </div>
-
 {% endblock %}

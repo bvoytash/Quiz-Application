@@ -1,41 +1,87 @@
 {% extends 'base.html' %}
 {% load get_value_dict %}
 {% block page_content %}
-    <h1 class="message-home">Избери новото канче!</h1>
-    {% if request.user.is_staff %}
-        <h2 style="margin-left: 2%"><a style="display: inline" class="cancel-btn" href="{% url 'add design' %}">Add Design</a></h2>
-    {% endif %}
-    <div>
-        {% for el in object_list %}
-            <div class="column">
-                <p class="design-p">" {{ el.name }} "</p>
-                <img class="left-image" src="media/{{ el.design_image }}" style="height:360px; width:370px">
-
-                <ul class="design-ul">
-                    <li class="design-ul-li">
+    <style>
+        .design-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .design-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 20px;
+        }
+        .design-item {
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            flex: 1 1 calc(33.333% - 20px); /* Responsive width */
+            box-sizing: border-box;
+            text-align: center;
+        }
+        .design-item img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+        .design-item p {
+            font-size: 1.25rem;
+            font-weight: bold;
+        }
+        .action-links {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        .like-counter {
+            display: block;
+            margin-top: 10px;
+            font-size: 1rem;
+            color: #555;
+        }
+        .add-design-link {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        @media (max-width: 768px) {
+            .design-item {
+                flex: 1 1 calc(50% - 20px); /* Adjust for tablets */
+            }
+        }
+        @media (max-width: 480px) {
+            .design-item {
+                flex: 1 1 100%; /* Adjust for mobile */
+            }
+        }
+    </style>
+    <div class="container design-container">
+        <h1>Избери новото канче!</h1>
+        {% if request.user.is_staff %}
+            <h2 class="add-design-link"><a class="btn btn-primary" href="{% url 'add design' %}">Add Design</a></h2>
+        {% endif %}
+        <div class="design-list">
+            {% for el in object_list %}
+                <div class="design-item">
+                    <p>"{{ el.name }}"</p>
+                    <img src="media/{{ el.design_image }}" alt="{{ el.name }}">
+                    <div class="action-links">
                         {% if is_liked|get_value:el.name %}
-                            <a class="liked-btn" href="{% url 'like design' el.id %}">
-                                Liked
-                            </a>
+                            <a class="btn btn-success" href="{% url 'like design' el.id %}">Liked</a>
                         {% else %}
-                            <a class="like-btn" href="{% url 'like design' el.id %}">
-                                Like
-                            </a>
+                            <a class="btn btn-outline-success" href="{% url 'like design' el.id %}">Like</a>
                         {% endif %}
-
-                    </li>
-                    {% if request.user.is_staff %}
-                        <li class="design-ul-li">
-                            <a class="login-btn" href="{% url 'edit design' el.id %}">Edit</a>
-                        </li>
-                        <li class="design-ul-li">
-                            <a class="cancel-btn" href="{% url 'delete design' el.id %}">Delete</a>
-                        </li>
-                    {% endif %}
-                </ul>
-                <span class="design-likes">Likes: {{ el.likedesign_set.count }}</span>
-            </div>
-        {% endfor %}
+                        {% if request.user.is_staff %}
+                            <a class="btn btn-outline-primary" href="{% url 'edit design' el.id %}">Edit</a>
+                            <a class="btn btn-outline-danger" href="{% url 'delete design' el.id %}">Delete</a>
+                        {% endif %}
+                    </div>
+                    <span class="like-counter">Likes: {{ el.likedesign_set.count }}</span>
+                </div>
+            {% endfor %}
+        </div>
     </div>
-
 {% endblock %}

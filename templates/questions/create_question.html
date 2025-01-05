@@ -1,26 +1,33 @@
 {% extends 'base.html' %}
 {% block page_content %}
     {% load widget_tweaks %}
-    <div class="columns-cause">
-        <div class="create-page">
-            <form method="post" class="#">
-                {% csrf_token %}
-                <label>Въпрос:</label>
-                <p>{% render_field form.question_text style="font-size: large; border: solid; border-color:green; border-radius: 10px; height: 90px" placeholder='...' %}</p>
-                <p><label>грешен
-                    отговор: </label>{% render_field form.first_answer style="font-size: medium; border: solid; border-color:green; border-radius: 10px; height: 36px" %}
-                </p>
-                <p><label>грешен
-                    отговор: </label>{% render_field form.second_answer style="font-size: medium; border: solid; border-color:green; border-radius: 10px; height: 36px" %}
-                </p>
-                <p><label>* верен
-                    отговор: </label>{% render_field form.correct_answer style="font-size: medium; border: solid; border-color:green; border-radius: 10px; height: 36px" %}
-                </p>
-                <button type="submit" class="login-btn">Добави</button>
-            </form>
-        </div>
-        <div class="column-cause">
-            <img class="register-right-img" src="/static/img/new_logo.png" width="440px" height="440px">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6 text-center">
+                <form method="post" class="mb-4">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label>Въпрос:</label>
+                        {% render_field form.question_text class="form-control" placeholder='...' style="height: 90px;" %}
+                    </div>
+                    <div class="mb-3">
+                        <label>грешен отговор:</label>
+                        {% render_field form.first_answer class="form-control" %}
+                    </div>
+                    <div class="mb-3">
+                        <label>грешен отговор:</label>
+                        {% render_field form.second_answer class="form-control" %}
+                    </div>
+                    <div class="mb-3">
+                        <label>* верен отговор:</label>
+                        {% render_field form.correct_answer class="form-control" %}
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: auto;">Добави</button>
+                </form>
+            </div>
+            <div class="col-md-6 d-none d-md-block">
+                <img src="/static/img/new_logo.png" class="img-fluid rounded" width="440px" height="440px" alt="Logo Image">
+            </div>
         </div>
     </div>
 {% endblock %}
