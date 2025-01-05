@@ -3,7 +3,6 @@ import string
 
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.core.mail import send_mail
 from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.views.generic import ListView, UpdateView, DeleteView
@@ -12,12 +11,17 @@ from django.contrib import messages
 from explorebg.questions.forms import CreateQuestionForm, EditQuestionForm, EditAnswerForm
 from explorebg.questions.models import Question, Answer, Code
 
+from django.core.mail import send_mail
+from django.shortcuts import render
+from celery import shared_task
+from explorebg.questions.tasks import send_email_task
+
 
 @login_required
 def start_quiz(request):
     if request.method == "POST":
         questions = list(Question.objects.all())
-        num_questions = min(len(questions), 5)  # Get up to 5 questions, or fewer if not enough
+        num_questions = min(len(questions), 10)  # Get up to 10 questions, or fewer if not enough
 
         if num_questions == 0:
             messages.error(request, "No questions available for the quiz.")
@@ -156,17 +160,16 @@ def get_promo_code():
 def send_email(request):
     code = get_promo_code()
     user = request.user
+
+    user_email = str(user)
     new_code = Code(
         text=code,
         user=user,
     )
     new_code.save()
-                                            # TODO if error: code = get new code
-    send_mail('Hello from Explore Quiz',
-              f"Your code is {code}",
-              'explore-quiz@abv.bg',
-              [f'{user}'],
-              fail_silently=False)
+                                           # TODO if error: code = get new code
+
+    send_email_task.delay(user_email, code)
 
     context = {
         'code': code,
