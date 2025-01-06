@@ -21,13 +21,17 @@ from explorebg.questions.tasks import send_email_task
 def start_quiz(request):
     if request.method == "POST":
         questions = list(Question.objects.all())
-        num_questions = min(len(questions), 10)  # Get up to 10 questions, or fewer if not enough
+        num_questions = min(len(questions), 5)  # Get up to 5 questions, or fewer if not enough
 
         if num_questions == 0:
             messages.error(request, "No questions available for the quiz.")
             return render(request, 'quiz/start_quiz.html')
 
         random_questions = random.sample(questions, num_questions)
+
+        # Store the selected questions' IDs in the session
+        request.session['quiz_questions'] = [q.id for q in random_questions]
+
         context = {
             'questions': random_questions
         }
@@ -39,23 +43,29 @@ def start_quiz(request):
 @login_required
 def get_result(request):
     if request.method == "POST":
-        dict_qa = {}
-        for a in Answer.objects.all():
-            if a.correct:
-                dict_qa[a.question.text] = a.text
+        # Retrieve the questions' IDs from the session
+        question_ids = request.session.get('quiz_questions', [])
+        selected_questions = Question.objects.filter(id__in=question_ids)
+
+        # Build a dictionary of correct answers for the selected questions
+        dict_qa = {
+            answer.question.text: answer.text
+            for answer in Answer.objects.filter(question__in=selected_questions, correct=True)
+        }
 
         correct_answers = 0
         for k, v in request.POST.items():
             if dict_qa.get(k) == v:
                 correct_answers += 1
 
-        total_questions = len(dict_qa)  # Total questions are the keys in the dictionary
-        passed = correct_answers > total_questions / 2  # Compute if more than 50%
+        total_questions = len(selected_questions)
+        passed = correct_answers > total_questions / 2  # Passed if more than 50%
 
         context = {
             'correct_answers': correct_answers,
             'total_questions': total_questions,
-            'passed': passed  # Add the computed result here
+            'passed': passed,
+            # 'questions': selected_questions  # Include the selected questions for display
         }
         return render(request, 'quiz/finish_quiz.html', context)
 
@@ -167,7 +177,7 @@ def send_email(request):
         user=user,
     )
     new_code.save()
-                                           # TODO if error: code = get new code
+    # TODO if error: code = get new code
 
     send_email_task.delay(user_email, code)
 

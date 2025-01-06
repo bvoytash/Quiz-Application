@@ -1,0 +1,88 @@
+ 
+ -------------- celery@Borislavs-MacBook-Air.local v5.4.0 (opalescent)
+--- ***** ----- 
+-- ******* ---- macOS-15.2-arm64-arm-64bit 2025-01-06 10:30:37
+- *** --- * --- 
+- ** ---------- [config]
+- ** ---------- .> app:         explorebg:0x1061cdd00
+- ** ---------- .> transport:   redis://localhost:6379/0
+- ** ---------- .> results:     redis://localhost:6379/0
+- *** --- * --- .> concurrency: 8 (prefork)
+-- ******* ---- .> task events: OFF (enable -E to monitor tasks in this worker)
+--- ***** ----- 
+ -------------- [queues]
+                .> celery           exchange=celery(direct) key=celery
+                
+
+[tasks]
+  . explorebg.questions.tasks.send_email_task
+
+[2025-01-06 10:30:38,141: WARNING/MainProcess] /Users/borislavvoytash/Desktop/Explore/Quiz-Application/.venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py:508: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2025-01-06 10:30:38,151: INFO/MainProcess] Connected to redis://localhost:6379/0
+[2025-01-06 10:30:38,151: WARNING/MainProcess] /Users/borislavvoytash/Desktop/Explore/Quiz-Application/.venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py:508: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2025-01-06 10:30:38,152: INFO/MainProcess] mingle: searching for neighbors
+[2025-01-06 10:30:39,168: WARNING/MainProcess] /Users/borislavvoytash/Desktop/Explore/Quiz-Application/.venv/lib/python3.9/site-packages/celery/app/control.py:56: DuplicateNodenameWarning: Received multiple replies from node name: celery@Borislavs-MacBook-Air.local.
+Please make sure you give each node a unique nodename using
+the celery worker `-n` option.
+  warnings.warn(DuplicateNodenameWarning(
+
+[2025-01-06 10:30:39,168: INFO/MainProcess] mingle: all alone
+[2025-01-06 10:30:39,179: INFO/MainProcess] celery@Borislavs-MacBook-Air.local ready.
+
+worker: Hitting Ctrl+C again will terminate all running tasks!
+
+worker: Warm shutdown (MainProcess)
+ 
+ -------------- celery@Borislavs-MacBook-Air.local v5.4.0 (opalescent)
+--- ***** ----- 
+-- ******* ---- macOS-15.2-arm64-arm-64bit 2025-01-06 10:47:45
+- *** --- * --- 
+- ** ---------- [config]
+- ** ---------- .> app:         explorebg:0x105c19d00
+- ** ---------- .> transport:   redis://localhost:6379/0
+- ** ---------- .> results:     redis://localhost:6379/0
+- *** --- * --- .> concurrency: 8 (prefork)
+-- ******* ---- .> task events: OFF (enable -E to monitor tasks in this worker)
+--- ***** ----- 
+ -------------- [queues]
+                .> celery           exchange=celery(direct) key=celery
+                
+
+[tasks]
+  . explorebg.questions.tasks.send_email_task
+
+[2025-01-06 10:47:46,104: WARNING/MainProcess] /Users/borislavvoytash/Desktop/Explore/Quiz-Application/.venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py:508: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2025-01-06 10:47:46,110: INFO/MainProcess] Connected to redis://localhost:6379/0
+[2025-01-06 10:47:46,110: WARNING/MainProcess] /Users/borislavvoytash/Desktop/Explore/Quiz-Application/.venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py:508: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2025-01-06 10:47:46,112: INFO/MainProcess] mingle: searching for neighbors
+[2025-01-06 10:47:47,127: WARNING/MainProcess] /Users/borislavvoytash/Desktop/Explore/Quiz-Application/.venv/lib/python3.9/site-packages/celery/app/control.py:56: DuplicateNodenameWarning: Received multiple replies from node name: celery@Borislavs-MacBook-Air.local.
+Please make sure you give each node a unique nodename using
+the celery worker `-n` option.
+  warnings.warn(DuplicateNodenameWarning(
+
+[2025-01-06 10:47:47,127: INFO/MainProcess] mingle: all alone
+[2025-01-06 10:47:47,136: INFO/MainProcess] celery@Borislavs-MacBook-Air.local ready.
+
+worker: Hitting Ctrl+C again will terminate all running tasks!
+
+worker: Warm shutdown (MainProcess)
