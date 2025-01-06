@@ -14,13 +14,14 @@
          main { 
              flex: 1; 
          }
-         footer { 
-             background-color: #f8f9fa; 
+         footer, nav { 
+             background-color: #E7EBE0FF; 
+             border: 2px solid #8FBC8F; /* Green border */
          }
      </style>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light">
     <div class="container-fluid">
         <a class="navbar-brand" href="{% url 'home' %}">Explore Quiz</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -68,7 +69,7 @@
         {% endblock %}
     </main>
 
-<footer class="bg-light text-center py-4 mt-4">
+<footer class="text-center py-4 mt-4">
     <div class="container"> 
         <span>Намерете ни във </span>
         <a href="https://www.facebook.com/pages/category/Local---travel-website/Explore-Bulgarian-Beauty-109366823810835/" class="text-decoration-none mx-2">
