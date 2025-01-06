@@ -17,6 +17,7 @@ from celery import shared_task
 from explorebg.questions.tasks import send_email_task
 
 
+
 @login_required
 def start_quiz(request):
     if request.method == "POST":
@@ -180,6 +181,7 @@ def send_email(request):
     # TODO if error: code = get new code
 
     send_email_task.delay(user_email, code)
+
 
     context = {
         'code': code,
