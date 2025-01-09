@@ -24,6 +24,11 @@ class LoginUserView(LoginView):
     authentication_form = SignInForm
     success_url = reverse_lazy('home')
 
+    def form_invalid(self, form):
+        print("Form is invalid")
+        print(form.errors)
+        return super().form_invalid(form)
+
 
 class LogoutView(View):
     def get(self, request):
