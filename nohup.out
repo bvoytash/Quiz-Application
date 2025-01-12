@@ -871,3 +871,5 @@ the celery worker `-n` option.
 worker: Hitting Ctrl+C again will terminate all running tasks!
 
 worker: Warm shutdown (MainProcess)
+
+worker: Warm shutdown (MainProcess)
