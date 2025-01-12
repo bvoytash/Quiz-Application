@@ -873,3 +873,44 @@ worker: Hitting Ctrl+C again will terminate all running tasks!
 worker: Warm shutdown (MainProcess)
 
 worker: Warm shutdown (MainProcess)
+ 
+ -------------- celery@Borislavs-MacBook-Air.local v5.4.0 (opalescent)
+--- ***** ----- 
+-- ******* ---- macOS-15.2-arm64-arm-64bit 2025-01-12 18:14:17
+- *** --- * --- 
+- ** ---------- [config]
+- ** ---------- .> app:         explorebg:0x103fd03d0
+- ** ---------- .> transport:   redis://localhost:6379/0
+- ** ---------- .> results:     redis://localhost:6379/0
+- *** --- * --- .> concurrency: 8 (prefork)
+-- ******* ---- .> task events: OFF (enable -E to monitor tasks in this worker)
+--- ***** ----- 
+ -------------- [queues]
+                .> celery           exchange=celery(direct) key=celery
+                
+
+[tasks]
+  . explorebg.questions.tasks.send_email_task
+
+[2025-01-12 18:14:18,102: WARNING/MainProcess] /Users/borislavvoytash/Desktop/Explore/Quiz-Application/.venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py:508: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2025-01-12 18:14:18,108: INFO/MainProcess] Connected to redis://localhost:6379/0
+[2025-01-12 18:14:18,109: WARNING/MainProcess] /Users/borislavvoytash/Desktop/Explore/Quiz-Application/.venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py:508: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2025-01-12 18:14:18,110: INFO/MainProcess] mingle: searching for neighbors
+[2025-01-12 18:14:19,116: INFO/MainProcess] mingle: all alone
+[2025-01-12 18:14:19,127: INFO/MainProcess] celery@Borislavs-MacBook-Air.local ready.
+[2025-01-12 18:14:57,987: INFO/MainProcess] Task explorebg.questions.tasks.send_email_task[6f094f37-3511-4452-827d-5ba6cc459242] received
+[2025-01-12 18:15:00,943: INFO/ForkPoolWorker-8] Task explorebg.questions.tasks.send_email_task[6f094f37-3511-4452-827d-5ba6cc459242] succeeded in 2.9538667079999996s: None
+
+worker: Hitting Ctrl+C again will terminate all running tasks!
+
+worker: Warm shutdown (MainProcess)
