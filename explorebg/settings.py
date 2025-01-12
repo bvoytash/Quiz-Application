@@ -173,6 +173,6 @@ CELERY_RESULT_SERIALIZER = 'json'
 CELERY_TIMEZONE = 'Europe/Sofia' # Adjust to your local timezone
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://quiz-application-b4jt.onrender.com',
+    'https://quiz-application-sroi.onrender.com',
 ]
 
