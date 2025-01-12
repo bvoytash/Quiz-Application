@@ -23,7 +23,7 @@ DEBUG = True
 ALLOWED_HOSTS = [
     'localhost',
     '127.0.0.1',
-    'quiz-application-b4jt.onrender.com',
+    'quiz-application-sroi.onrender.com',
 ]
 CSRF_TRUSTED_ORIGINS = [
     'https://quiz-application-b4jt.onrender.com',
@@ -174,4 +174,3 @@ CELERY_ACCEPT_CONTENT = ['json']
 CELERY_TASK_SERIALIZER = 'json'
 CELERY_RESULT_SERIALIZER = 'json'
 CELERY_TIMEZONE = 'Europe/Sofia' # Adjust to your local timezone
-
