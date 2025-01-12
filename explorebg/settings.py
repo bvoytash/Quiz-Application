@@ -20,7 +20,7 @@ SECRET_KEY = os.getenv('SECRET_KEY', 'django-insecure-+e47zn(btsf^fcs_@605h6ish*
 
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['quiz-application-3vdp.onrender.com']
 
 
 INSTALLED_APPS = [
