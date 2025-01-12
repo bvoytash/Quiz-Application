@@ -914,3 +914,175 @@ you should set broker_connection_retry_on_startup to True.
 worker: Hitting Ctrl+C again will terminate all running tasks!
 
 worker: Warm shutdown (MainProcess)
+ 
+ -------------- celery@Borislavs-MacBook-Air.local v5.4.0 (opalescent)
+--- ***** ----- 
+-- ******* ---- macOS-15.2-arm64-arm-64bit 2025-01-12 18:34:32
+- *** --- * --- 
+- ** ---------- [config]
+- ** ---------- .> app:         explorebg:0x105fe03d0
+- ** ---------- .> transport:   redis://red-cu20jqlsvqrc73f16n70:6379//
+- ** ---------- .> results:     redis://red-cu20jqlsvqrc73f16n70:6379/
+- *** --- * --- .> concurrency: 8 (prefork)
+-- ******* ---- .> task events: OFF (enable -E to monitor tasks in this worker)
+--- ***** ----- 
+ -------------- [queues]
+                .> celery           exchange=celery(direct) key=celery
+                
+
+[tasks]
+  . explorebg.questions.tasks.send_email_task
+
+[2025-01-12 18:34:32,507: WARNING/MainProcess] /Users/borislavvoytash/Desktop/Explore/Quiz-Application/.venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py:508: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2025-01-12 18:34:32,521: ERROR/MainProcess] consumer: Cannot connect to redis://red-cu20jqlsvqrc73f16n70:6379//: Error 8 connecting to red-cu20jqlsvqrc73f16n70:6379. nodename nor servname provided, or not known..
+Trying again in 2.00 seconds... (1/100)
+
+[2025-01-12 18:34:34,532: ERROR/MainProcess] consumer: Cannot connect to redis://red-cu20jqlsvqrc73f16n70:6379//: Error 8 connecting to red-cu20jqlsvqrc73f16n70:6379. nodename nor servname provided, or not known..
+Trying again in 4.00 seconds... (2/100)
+
+[2025-01-12 18:34:38,545: ERROR/MainProcess] consumer: Cannot connect to redis://red-cu20jqlsvqrc73f16n70:6379//: Error 8 connecting to red-cu20jqlsvqrc73f16n70:6379. nodename nor servname provided, or not known..
+Trying again in 6.00 seconds... (3/100)
+
+[2025-01-12 18:34:44,574: ERROR/MainProcess] consumer: Cannot connect to redis://red-cu20jqlsvqrc73f16n70:6379//: Error 8 connecting to red-cu20jqlsvqrc73f16n70:6379. nodename nor servname provided, or not known..
+Trying again in 8.00 seconds... (4/100)
+
+[2025-01-12 18:34:52,593: ERROR/MainProcess] consumer: Cannot connect to redis://red-cu20jqlsvqrc73f16n70:6379//: Error 8 connecting to red-cu20jqlsvqrc73f16n70:6379. nodename nor servname provided, or not known..
+Trying again in 10.00 seconds... (5/100)
+
+[2025-01-12 18:35:02,630: ERROR/MainProcess] consumer: Cannot connect to redis://red-cu20jqlsvqrc73f16n70:6379//: Error 8 connecting to red-cu20jqlsvqrc73f16n70:6379. nodename nor servname provided, or not known..
+Trying again in 12.00 seconds... (6/100)
+
+[2025-01-12 18:35:14,673: ERROR/MainProcess] consumer: Cannot connect to redis://red-cu20jqlsvqrc73f16n70:6379//: Error 8 connecting to red-cu20jqlsvqrc73f16n70:6379. nodename nor servname provided, or not known..
+Trying again in 14.00 seconds... (7/100)
+
+[2025-01-12 18:35:28,726: ERROR/MainProcess] consumer: Cannot connect to redis://red-cu20jqlsvqrc73f16n70:6379//: Error 8 connecting to red-cu20jqlsvqrc73f16n70:6379. nodename nor servname provided, or not known..
+Trying again in 16.00 seconds... (8/100)
+
+[2025-01-12 18:35:44,784: ERROR/MainProcess] consumer: Cannot connect to redis://red-cu20jqlsvqrc73f16n70:6379//: Error 8 connecting to red-cu20jqlsvqrc73f16n70:6379. nodename nor servname provided, or not known..
+Trying again in 18.00 seconds... (9/100)
+
+[2025-01-12 18:36:02,844: ERROR/MainProcess] consumer: Cannot connect to redis://red-cu20jqlsvqrc73f16n70:6379//: Error 8 connecting to red-cu20jqlsvqrc73f16n70:6379. nodename nor servname provided, or not known..
+Trying again in 20.00 seconds... (10/100)
+
+[2025-01-12 18:36:22,912: ERROR/MainProcess] consumer: Cannot connect to redis://red-cu20jqlsvqrc73f16n70:6379//: Error 8 connecting to red-cu20jqlsvqrc73f16n70:6379. nodename nor servname provided, or not known..
+Trying again in 22.00 seconds... (11/100)
+
+[2025-01-12 18:36:44,976: ERROR/MainProcess] consumer: Cannot connect to redis://red-cu20jqlsvqrc73f16n70:6379//: Error 8 connecting to red-cu20jqlsvqrc73f16n70:6379. nodename nor servname provided, or not known..
+Trying again in 24.00 seconds... (12/100)
+
+[2025-01-12 18:37:09,064: ERROR/MainProcess] consumer: Cannot connect to redis://red-cu20jqlsvqrc73f16n70:6379//: Error 8 connecting to red-cu20jqlsvqrc73f16n70:6379. nodename nor servname provided, or not known..
+Trying again in 26.00 seconds... (13/100)
+
+[2025-01-12 18:37:35,160: ERROR/MainProcess] consumer: Cannot connect to redis://red-cu20jqlsvqrc73f16n70:6379//: Error 8 connecting to red-cu20jqlsvqrc73f16n70:6379. nodename nor servname provided, or not known..
+Trying again in 28.00 seconds... (14/100)
+
+[2025-01-12 18:38:03,258: ERROR/MainProcess] consumer: Cannot connect to redis://red-cu20jqlsvqrc73f16n70:6379//: Error 8 connecting to red-cu20jqlsvqrc73f16n70:6379. nodename nor servname provided, or not known..
+Trying again in 30.00 seconds... (15/100)
+
+[2025-01-12 18:38:33,351: ERROR/MainProcess] consumer: Cannot connect to redis://red-cu20jqlsvqrc73f16n70:6379//: Error 8 connecting to red-cu20jqlsvqrc73f16n70:6379. nodename nor servname provided, or not known..
+Trying again in 32.00 seconds... (16/100)
+
+[2025-01-12 18:39:05,466: ERROR/MainProcess] consumer: Cannot connect to redis://red-cu20jqlsvqrc73f16n70:6379//: Error 8 connecting to red-cu20jqlsvqrc73f16n70:6379. nodename nor servname provided, or not known..
+Trying again in 32.00 seconds... (16/100)
+
+[2025-01-12 18:39:37,591: ERROR/MainProcess] consumer: Cannot connect to redis://red-cu20jqlsvqrc73f16n70:6379//: Error 8 connecting to red-cu20jqlsvqrc73f16n70:6379. nodename nor servname provided, or not known..
+Trying again in 32.00 seconds... (16/100)
+
+[2025-01-12 18:40:09,704: ERROR/MainProcess] consumer: Cannot connect to redis://red-cu20jqlsvqrc73f16n70:6379//: Error 8 connecting to red-cu20jqlsvqrc73f16n70:6379. nodename nor servname provided, or not known..
+Trying again in 32.00 seconds... (16/100)
+
+[2025-01-12 18:40:41,809: ERROR/MainProcess] consumer: Cannot connect to redis://red-cu20jqlsvqrc73f16n70:6379//: Error 8 connecting to red-cu20jqlsvqrc73f16n70:6379. nodename nor servname provided, or not known..
+Trying again in 32.00 seconds... (16/100)
+
+[2025-01-12 18:41:13,925: ERROR/MainProcess] consumer: Cannot connect to redis://red-cu20jqlsvqrc73f16n70:6379//: Error 8 connecting to red-cu20jqlsvqrc73f16n70:6379. nodename nor servname provided, or not known..
+Trying again in 32.00 seconds... (16/100)
+
+[2025-01-12 18:41:46,033: ERROR/MainProcess] consumer: Cannot connect to redis://red-cu20jqlsvqrc73f16n70:6379//: Error 8 connecting to red-cu20jqlsvqrc73f16n70:6379. nodename nor servname provided, or not known..
+Trying again in 32.00 seconds... (16/100)
+
+[2025-01-12 18:42:18,137: ERROR/MainProcess] consumer: Cannot connect to redis://red-cu20jqlsvqrc73f16n70:6379//: Error 8 connecting to red-cu20jqlsvqrc73f16n70:6379. nodename nor servname provided, or not known..
+Trying again in 32.00 seconds... (16/100)
+
+[2025-01-12 18:42:50,251: ERROR/MainProcess] consumer: Cannot connect to redis://red-cu20jqlsvqrc73f16n70:6379//: Error 8 connecting to red-cu20jqlsvqrc73f16n70:6379. nodename nor servname provided, or not known..
+Trying again in 32.00 seconds... (16/100)
+
+[2025-01-12 18:43:22,377: ERROR/MainProcess] consumer: Cannot connect to redis://red-cu20jqlsvqrc73f16n70:6379//: Error 8 connecting to red-cu20jqlsvqrc73f16n70:6379. nodename nor servname provided, or not known..
+Trying again in 32.00 seconds... (16/100)
+
+[2025-01-12 18:43:54,483: ERROR/MainProcess] consumer: Cannot connect to redis://red-cu20jqlsvqrc73f16n70:6379//: Error 8 connecting to red-cu20jqlsvqrc73f16n70:6379. nodename nor servname provided, or not known..
+Trying again in 32.00 seconds... (16/100)
+
+
+worker: Hitting Ctrl+C again will terminate all running tasks!
+
+worker: Warm shutdown (MainProcess)
+ 
+ -------------- celery@Borislavs-MacBook-Air.local v5.4.0 (opalescent)
+--- ***** ----- 
+-- ******* ---- macOS-15.2-arm64-arm-64bit 2025-01-12 18:44:09
+- *** --- * --- 
+- ** ---------- [config]
+- ** ---------- .> app:         explorebg:0x1090bc3d0
+- ** ---------- .> transport:   redis://red-cu20jqlsvqrc73f16n70:6379/0
+- ** ---------- .> results:     redis://red-cu20jqlsvqrc73f16n70:6379/1
+- *** --- * --- .> concurrency: 8 (prefork)
+-- ******* ---- .> task events: OFF (enable -E to monitor tasks in this worker)
+--- ***** ----- 
+ -------------- [queues]
+                .> celery           exchange=celery(direct) key=celery
+                
+
+[tasks]
+  . explorebg.questions.tasks.send_email_task
+
+[2025-01-12 18:44:10,164: WARNING/MainProcess] /Users/borislavvoytash/Desktop/Explore/Quiz-Application/.venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py:508: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2025-01-12 18:44:10,174: ERROR/MainProcess] consumer: Cannot connect to redis://red-cu20jqlsvqrc73f16n70:6379/0: Error 8 connecting to red-cu20jqlsvqrc73f16n70:6379. nodename nor servname provided, or not known..
+Trying again in 2.00 seconds... (1/100)
+
+[2025-01-12 18:44:12,187: ERROR/MainProcess] consumer: Cannot connect to redis://red-cu20jqlsvqrc73f16n70:6379/0: Error 8 connecting to red-cu20jqlsvqrc73f16n70:6379. nodename nor servname provided, or not known..
+Trying again in 4.00 seconds... (2/100)
+
+[2025-01-12 18:44:16,196: ERROR/MainProcess] consumer: Cannot connect to redis://red-cu20jqlsvqrc73f16n70:6379/0: Error 8 connecting to red-cu20jqlsvqrc73f16n70:6379. nodename nor servname provided, or not known..
+Trying again in 6.00 seconds... (3/100)
+
+[2025-01-12 18:44:22,224: ERROR/MainProcess] consumer: Cannot connect to redis://red-cu20jqlsvqrc73f16n70:6379/0: Error 8 connecting to red-cu20jqlsvqrc73f16n70:6379. nodename nor servname provided, or not known..
+Trying again in 8.00 seconds... (4/100)
+
+[2025-01-12 18:44:30,259: ERROR/MainProcess] consumer: Cannot connect to redis://red-cu20jqlsvqrc73f16n70:6379/0: Error 8 connecting to red-cu20jqlsvqrc73f16n70:6379. nodename nor servname provided, or not known..
+Trying again in 10.00 seconds... (5/100)
+
+[2025-01-12 18:44:40,290: ERROR/MainProcess] consumer: Cannot connect to redis://red-cu20jqlsvqrc73f16n70:6379/0: Error 8 connecting to red-cu20jqlsvqrc73f16n70:6379. nodename nor servname provided, or not known..
+Trying again in 12.00 seconds... (6/100)
+
+[2025-01-12 18:44:52,329: ERROR/MainProcess] consumer: Cannot connect to redis://red-cu20jqlsvqrc73f16n70:6379/0: Error 8 connecting to red-cu20jqlsvqrc73f16n70:6379. nodename nor servname provided, or not known..
+Trying again in 14.00 seconds... (7/100)
+
+[2025-01-12 18:45:06,376: ERROR/MainProcess] consumer: Cannot connect to redis://red-cu20jqlsvqrc73f16n70:6379/0: Error 8 connecting to red-cu20jqlsvqrc73f16n70:6379. nodename nor servname provided, or not known..
+Trying again in 16.00 seconds... (8/100)
+
+[2025-01-12 18:45:22,429: ERROR/MainProcess] consumer: Cannot connect to redis://red-cu20jqlsvqrc73f16n70:6379/0: Error 8 connecting to red-cu20jqlsvqrc73f16n70:6379. nodename nor servname provided, or not known..
+Trying again in 18.00 seconds... (9/100)
+
+[2025-01-12 18:45:40,482: ERROR/MainProcess] consumer: Cannot connect to redis://red-cu20jqlsvqrc73f16n70:6379/0: Error 8 connecting to red-cu20jqlsvqrc73f16n70:6379. nodename nor servname provided, or not known..
+Trying again in 20.00 seconds... (10/100)
+
+[2025-01-12 18:46:00,554: ERROR/MainProcess] consumer: Cannot connect to redis://red-cu20jqlsvqrc73f16n70:6379/0: Error 8 connecting to red-cu20jqlsvqrc73f16n70:6379. nodename nor servname provided, or not known..
+Trying again in 22.00 seconds... (11/100)
+
+[2025-01-12 18:46:22,622: ERROR/MainProcess] consumer: Cannot connect to redis://red-cu20jqlsvqrc73f16n70:6379/0: Error 8 connecting to red-cu20jqlsvqrc73f16n70:6379. nodename nor servname provided, or not known..
+Trying again in 24.00 seconds... (12/100)
+
+
+worker: Hitting Ctrl+C again will terminate all running tasks!
+
+worker: Warm shutdown (MainProcess)
