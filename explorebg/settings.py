@@ -20,7 +20,11 @@ SECRET_KEY = os.getenv('SECRET_KEY', 'django-insecure-+e47zn(btsf^fcs_@605h6ish*
 
 DEBUG = True
 
-ALLOWED_HOSTS = ['quiz-application-urpc.onrender.com', '127.0.0.1', 'localhost']
+ALLOWED_HOSTS = [
+    'localhost',
+    '127.0.0.1',
+    'quiz-application-b4jt.onrender.com',
+]
 
 
 INSTALLED_APPS = [

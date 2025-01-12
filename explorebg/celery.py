@@ -9,3 +9,4 @@ app = Celery('explorebg')
 app.config_from_object('django.conf:settings', namespace='CELERY')
 
 app.autodiscover_tasks()
+broker_connection_retry_on_startup = True
