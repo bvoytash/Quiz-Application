@@ -23,10 +23,10 @@ DEBUG = True
 ALLOWED_HOSTS = [
     'localhost',
     '127.0.0.1',
-    'quiz-application-sroi.onrender.com',
+    'quiz-application-u54x.onrender.com',
 ]
 CSRF_TRUSTED_ORIGINS = [
-    'https://quiz-application-b4jt.onrender.com',
+    'https://quiz-application-u54x.onrender.com',
 ]
 
 
