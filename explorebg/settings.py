@@ -18,7 +18,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.getenv('SECRET_KEY', 'django-insecure-+e47zn(btsf^fcs_@605h6ish*q!hu(lo-a7b(mp$64903ixk9')
 
 
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [
     'localhost',
@@ -48,6 +48,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -141,7 +142,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
