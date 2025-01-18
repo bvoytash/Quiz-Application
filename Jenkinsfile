@@ -70,21 +70,21 @@ pipeline {
             steps {
                 script {
                     withCredentials([
-                        string(credentialsId: 'RENDER_API_KEY', variable: 'RENDER_API_KEY'),
+                        string(credentialsId: 'RENDER_API_KEY_2', variable: 'RENDER_API_KEY_2'),
                         string(credentialsId: 'RENDER_DEPLOY_HOOK_2', variable: 'RENDER_DEPLOY_HOOK_2')
                     ]) {
                         // Trigger the redeploy via the Render API
                         if (isUnix()) {
                             sh """
                                 curl -X POST https://api.render.com/v1/services/${env.RENDER_DEPLOY_HOOK_2}/deploys \
-                                -H "Authorization: Bearer ${env.RENDER_API_KEY}" \
+                                -H "Authorization: Bearer ${env.RENDER_API_KEY_2}" \
                                 -H "Content-Type: application/json" \
                                 -d "{}"
                             """
                         } else {
                             bat """
                                 curl -X POST https://api.render.com/v1/services/${env.RENDER_DEPLOY_HOOK_2}/deploys ^
-                                -H "Authorization: Bearer ${env.RENDER_API_KEY}" ^
+                                -H "Authorization: Bearer ${env.RENDER_API_KEY_2}" ^
                                 -H "Content-Type: application/json" ^
                                 -d "{}"
                             """
