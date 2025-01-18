@@ -1,6 +1,6 @@
 # Quiz-App
 
-Django Framework Project
+Django Framework Project :) 
 
 ## Live at: https://quiz-application-u54x.onrender.com
 
