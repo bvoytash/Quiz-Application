@@ -28,9 +28,6 @@ pipeline {
         }
 
         stage('Deploy to Render') {
-            when {
-                branch 'main'
-            }
             steps {
                 script {
                     withCredentials([
