@@ -54,12 +54,12 @@ pipeline {
                     if (isUnix()) {
                         sh '''
                             . .venv/bin/activate
-                            python3 -m manage.py test
+                            python3 manage.py test
                         '''
                     } else {
                         bat '''
                             call .venv/Scripts/activate
-                            python -m manage.py test
+                            python manage.py test
                         '''
                     }
                 }
