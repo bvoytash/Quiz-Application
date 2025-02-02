@@ -10,31 +10,26 @@
             text-align: center;
             margin-bottom: 20px;
         }
-        .question-item {
-            margin-bottom: 30px; /* Increased margin-bottom for more space */
+        .question-card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
         }
-        .answer-item {
-            list-style-type: none;
-            margin-bottom: 10px;
+        .question-header {
+            font-size: 18px;
+            font-weight: bold;
         }
-        .question-actions {
-            display: inline-flex;
-            gap: 10px;
-            margin-top: 10px;
-        }
-        .answer-actions {
-            margin-left: 10px;
-            color: #007bff;
-            text-decoration: none;
-        }
-        .answer-actions:hover {
-            text-decoration: underline;
+        .answer-list {
+            padding-left: 20px;
         }
         .correct-answer {
             color: #28a745;
             font-weight: bold;
         }
     </style>
+
     <div class="container questions-container">
         {% if object_list %}
             <h1 class="questions-title">Моите въпроси</h1>
@@ -42,23 +37,38 @@
             <h1 class="questions-title">Нямате въпроси</h1>
         {% endif %}
         {% csrf_token %}
+
         {% for question in object_list %}
-            <ul class="question-item">
-                <li>{{ question.text }}</li>
-                <div class="question-actions">
-                    <a class="btn btn-outline-primary btn-sm" href="{% url 'edit question' question.id %}">промени</a>
-                    <a class="btn btn-outline-danger btn-sm" href="{% url 'delete question' question.id %}">изтрий</a>
+            <div class="question-card">
+                <div class="question-header">
+                    {{ question.text }}
                 </div>
-                <hr>
-                {% for a in question.get_answer %}
-                    <li class="answer-item">{{ a.text }}
-                        <a class="answer-actions" href="{% url 'edit answer' a.id %}">| промени</a>
-                        {% if a.correct %}
-                            <span class="correct-answer">| верен</span>
-                        {% endif %}
-                    </li>
-                {% endfor %}
-            </ul>
+                <div class="question-actions mt-2">
+                    <a class="btn btn-outline-primary btn-sm" href="{% url 'edit question' question.id %}">Промени</a>
+                    <a class="btn btn-outline-danger btn-sm" href="{% url 'delete question' question.id %}">Изтрий</a>
+                </div>
+
+                {% if question.get_answer %}
+                    <hr>
+                    <button class="btn btn-outline-secondary btn-sm" data-bs-toggle="collapse" data-bs-target="#answers-{{ question.id }}">
+                        Покажи отговори
+                    </button>
+
+                    <div class="collapse mt-2" id="answers-{{ question.id }}">
+                        <ul class="answer-list">
+                            {% for a in question.get_answer %}
+                                <li>
+                                    {{ a.text }}
+                                    <a class="answer-actions" href="{% url 'edit answer' a.id %}">| Промени</a>
+                                    {% if a.correct %}
+                                        <span class="correct-answer">| Верен</span>
+                                    {% endif %}
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                {% endif %}
+            </div>
         {% endfor %}
     </div>
 {% endblock %}
