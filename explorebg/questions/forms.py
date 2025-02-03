@@ -17,28 +17,24 @@ class CreateQuestionForm(forms.Form):
         widget=forms.Textarea(attrs={
             'rows': 4,
             'style': 'font-size: medium; border: solid; border-color: green; border-radius: 10px; width: 100%; height: auto',
-            'placeholder': 'Въведете въпрос',
         })
     )
     first_answer = forms.CharField(
         max_length=200,
         widget=forms.TextInput(attrs={
             'style': 'font-size: medium; border: solid; border-color: green; border-radius: 10px; width: 100%; height: 36px',
-            'placeholder': 'Първи отговор',
         })
     )
     second_answer = forms.CharField(
         max_length=200,
         widget=forms.TextInput(attrs={
             'style': 'font-size: medium; border: solid; border-color: green; border-radius: 10px; width: 100%; height: 36px',
-            'placeholder': 'Втори отговор',
         })
     )
     correct_answer = forms.CharField(
         max_length=200,
         widget=forms.TextInput(attrs={
             'style': 'font-size: medium; border: solid; border-color: green; border-radius: 10px; width: 100%; height: 36px',
-            'placeholder': 'Правилен отговор',
         })
     )
 
