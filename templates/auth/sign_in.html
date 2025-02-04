@@ -18,6 +18,12 @@
     .login-img {
         display: block;
         margin: auto;
+        border-radius: 50%; /* Ensures the logo remains a circle */
+    }
+    .login-right-img {
+        border: 3px solid #ddd; /* Added border */
+        border-radius: 7%; /* Rounded edges only for the right image */
+        box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2); /* Added shadow */
     }
     .login-form input {
         width: 100%;
@@ -36,7 +42,7 @@
                 <form method="post" action="{% url 'sign in' %}" class="text-center">
                     {% csrf_token %}
                     <div class="mb-4">
-                        <img src="/static/img/logo.jpeg" width="100px" height="100px" class="rounded-circle login-img">
+                        <img src="/static/img/logo.jpeg" width="100px" height="100px" class="login-img">
                     </div>
                     <div class="mb-3 login-form">
                         {{ form.username }}
@@ -56,10 +62,10 @@
                 </form>
             </div>
         </div>
-        
+
         <!-- Image Section -->
         <div class="col-md-6 d-none d-md-block">
-            <img src="/static/img/pic4.jpeg" width="440px" height="440px" class="img-fluid rounded login-right-img">
+            <img src="/static/img/pic4.jpeg" width="440px" height="440px" class="img-fluid login-right-img">
         </div>
     </div>
 </div>
